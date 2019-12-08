@@ -1,0 +1,251 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="1200.002" viewBox="0 0 1600 1200.002">
+  <defs>
+    <filter id="Rectangle_239" x="111" y="246.002" width="484" height="924" filterUnits="userSpaceOnUse">
+      <feOffset dy="30" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feFlood flood-opacity="0.043"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_498" x="558" y="167.002" width="484" height="924" filterUnits="userSpaceOnUse">
+      <feOffset dy="30" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="18" result="blur-2"/>
+      <feFlood flood-opacity="0.043"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_240" x="558" y="419.002" width="485" height="674" filterUnits="userSpaceOnUse">
+      <feOffset dy="30" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="18" result="blur-3"/>
+      <feFlood flood-opacity="0.043"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <rect width="355" height="225.5" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect width="192" height="154" fill="none"/>
+    </clipPath>
+    <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 96 96">
+      <image width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAAFOElEQVR4nO3dW2wUZRQH8P+Z2bKAm8ol3pUEgsEXJT4YNcYYIjGhgg0tNAaVaAxgMA3szjcNfWLeSG9c1ATFKPjCQ+nOtoZuQkQrIaExRh+MMaJG4yXxGgTaKJfdOT7gE9sCu/PNfLPd83ucnT3n5Ptn55u9pAWEEEIIIYQQjYZMD1CLrq6RZUGpvAuElQAAxvEA2LF7d9s3hkerWt0FkMsVnrSIhwDMu+qhsyC09/e3fWRirlpZpgeohpvzN1rERVQuPgDMA+OYUv6muOcKo24CcJzCNiYcAjDrGqelwHhLqbwHcF28uhM/pOeNpSYn/34DjC3VPI/BhyYm/tp84MCWy1HNpkOiA9i6dTAzd05qEMCqWp5PwIdWqtTe09NxTvNo2iQ2gK6ukTuDcnAU4AdDlvrSTpWe7unp+EnLYJolMoBsdvh+2wpGAdyjqeSvZPHqvr72zzXV0yZxm7BS+ZW2FZyEvsUHgDs4oBNubqhFY00tEhWAmyu8CKYigJsjKJ9hskYcx38lgto1S0gATErlPSY+CKApwkYpAvarnL8vKbepxofwvMFZk5Opd8B4PtbGhCOZzLmNnvfShVj7Voxh0PbthXm2zT4BK0z0Z2CsXKa2vXvXnjXRHzAYQDY7eJdtpUYBLDc1w/++YnDLwED7jyaaGwlAqaEHwNYogLtN9J/CbwxaPTCw9rO4G8e+Cbtu4SmwdRLJWXwAuJ0QnHBz/uq4G8cagFKFlzngUQDNcfa9MXQTE4bdnP9qrF3jacOklL8TTDvj6RcS47VM8xdZz/OCqFtFHkBnZzGdbrr4Log3RN1LK+J8uVx+Yc+ejn8jbRNl8R07js4vlS4VwHgiyj4RGm+6VGrd9XrHn1E1iCwApd5fDC4VAdwXVY948HdkcUtf37pvo6geySbsOPmHiEvjqPvFBwBayoE17rr5x6Korj0ApfxWYvqYgdt01zZoIQd0XKlCh+7CWgNQyt8ExhAIc3XWTYjZYD7sOvlOnUU17QF1dpsZlsbb1NABdHYW0+lZFw4BeDZsrbrCKJS59FzY29RQAWSzgwtsSg2D8HiYOvWLPwHRM/39bX/UWqHmALLZ/BLboiKAZbXWmAkI+J5su6W3t/V0Lc+vaRNWavhh26JxNPjiAwADS4Jy+ZTrDtd0Fag6AKXya8HBGIBba2k4Qy3gIPhAKb/qfbCqABynsA1MQwDmVNuoAaTBOHzlZ5E37ob2gPXrB+1Fi5r2EFjrPfCMxXg70zx/q+etKF3v1OsG4HkHZ09O3PweAO3vAmc0xkimuWmD563551qnXTOA7m5/4eWLGAEhks9BGsCnl0v2mn37Wn+f7oRpA8hmR5baVrkI4N5IRmsY/MOVL/3XfT3Vo1Nuwkr5j9p2+RRk8TWgxQTrlJv1p/xOpCIAxymsAmMMjFuiH65hzGcLxxynUPEz+4oAiPEmgHQsYzWWNIH3X32w8hJEnJDfi85IFWtbcYBBmwH8Ess4jeVnCrD56oOhP45Wjs9ha9Sz/oG2UGsolxvDJADDJADDJADDJADDJADDJADDUqYHuJ6w99lJf58irwDDJADDJADDJADDJADDJADDJADDJADDJADDJADDJADDJADDJADDJADDJADDJADDJADDJADDJADDJADDJADDJADDJADDdAQwoaHGdHT865FEzxc+AMbx0DWmQxy+dsLnCx2AlbK7AZwJW2cKZ4i4O2yRxM8XtkBvb+tpy+blIBwBcD5sPQDnQZwnK3hEx5+KTPp8QgghhBBCCCGEEKJx/Af2vYvAEAcGXAAAAABJRU5ErkJggg=="/>
+    </pattern>
+    <pattern id="pattern-2" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 96 96">
+      <image width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAACbElEQVR4nO3dMU8TYRzH8d/TIJhI2Z1klMQRXkAHLQzQNyFO7sSXoDEmshn0TSDBIi/BsjjhpDI7wTkYyz0uTTRG2zzP1f7w7vtZm/+1uS/P5Y5rehIAAAAAAACaIlTdwMHxyUo5LLcVdE/SsqQblT/V1fZV0scovW2FsLfZXT2tsrHsAC8Gg2s3v8Qnkh5KmqvyIf5jwyjtLi0UO51OZ5izgawAo52/L2k9Z76G3rQXiq2cCK2cdxv95bPzf9o4/7b4OGcweQUcHJ+slJflezX3sPM3wxh1p7ex9iFlKHkFlJflA7Hz/2SuFeJ26lDOIehuxkwjRIVu6kxOgFsZM02RvG9yDiWL417cWl+rfG1xle3338UxL7dTt5d1FoTpIYAZAcwIYEYAMwKYEcBs6v9SmHCejN+wAswIYEYAMwKYEcCMAGYEMJv6dUDD7wckYwWYEcCMAGYEMCOAGQHMCGA2868YTjqPnnQd8a/vN8z6OoYVYEYAMwKYEcCMAGYEMCOA2cyvA6qeZ9ftfgMrwIwAZgQwI4AZAcwIYEYAM+4HJL7/tLECzAhgRgAzApgRwIwAZgQw436AGSvAjABmBDAjgBkBzAhgRgCznOuAC435fcyG/17QeepAzgo4y5hphBD0OXUmOUCUjlJnmqKU+qkzyQFaIexJynpaRJ0F6btKvUqdSw6w2V09jdJu6lzdxRiepz47QMo8C1paKHYUdJgzW0tBh+3rF49yRrMCdDqdYXu+6EXpmZp9OBoqhqft+aI304f4/Or10eC2Ynl/9PCCZU34efsaKCR9Ugz9qPgy57ADAAAAAACAZvoBryOJ7KwBfNYAAAAASUVORK5CYII="/>
+    </pattern>
+    <pattern id="pattern-3" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 96 96">
+      <image width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAACcUlEQVR4nO3dzWoTURyG8ffMFEH82LTduNCuFdwYoRdgVNoqvQcrxX3BixARke7aG+hKCkpMb0B01YXVZXEzG1d+bZrJcWFAhZpwToyvZp7fNvxPhnk6yaRpZyQAQFOFST/Bbud1HPb47ZtXJ74Nw7i3r5jk4hiNAGYEMCOAGQHMCGBGALOxz3F3O68uSWFNUlvSgqRT4675j/si6VBR3X6st1aXFg/GWSw7wM7OmxMnz359GKV7kspxNuI/VivEzWq22FhvtY5yFsgKMNj5z6J0LWd+Cu1Vc2E5J0LWe8DgJ5+d/0P73Ac9yBlMPgIGr/n7au7Lzu/0irK4vNK+8jZlKPkICCruip1/nJm67q+lDiUHiN/PdnCMIF1Pncl4D4jn02ca40LqwEzGk5we9qD79/uTNuL7gzOp6/FJ2IwAZgQwI4AZAcwIYEYAs5zPAUON+jsb/IojwIwAZgQwI4AZAcwIYEYAsz/+OaDh3wck4wgwI4AZAcwIYEYAMwKYEcCMAGYEMCOAGQHMCGBGADMCmBHAjABmBDAjgBkBzAhgRgAzApgRwIwAZgQwI4AZAcwIYEYAMwKYEcCMAGYEMCOAGQHMCGBGADMCmBHALOf/hD9pyPUxG369oI+pAzlHwPuMmaZI3jfpAaK6yTNNEUMndSQ5QD/WW5Lq1LkG6IVC26lDyQFWlxYPFOJm6tzUi3py60brXepY1llQNVtsSNrLmZ1KUd1qPtzPGc0KsN5qHVVzYTkoPJbUy1ljSvQU9aiaDyt/9SY+P3v6/OXFUJR3BjcvWNCIy9tPgc+SDoPii1CW26m3LAEAAAAAAEBzfQO3pXTD3deKWwAAAABJRU5ErkJggg=="/>
+    </pattern>
+    <pattern id="pattern-4" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
+      <image width="100" height="100" xlink:href="data:image/png;base64,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"/>
+    </pattern>
+    <pattern id="pattern-5" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 96 96">
+      <image width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAADM0lEQVR4nO3cP08UQRgG8OfdA8Uc2BgKbLSxUEohsbAwxhNiwFjxAfwTjSQkJia22JlotDAmksAXoFJAuUOTa4mcBYmoJbGhwULDEQ+5GwsrY8LM3s7su9l7fvVO3uF9bo6Zzd4CRERERETUaSR0gYXymgldQ1kdwKZA3ouY2bGR4U9xBjMAv1oQefnrx5F7ExODey4DotAz6jARjLnb01dfnp/fOOQ2gPwTuXj46O5Tl0sZQCAC3Fkofxi0XccAwinAyA3bRQwgJEHJdgkDCOuE7YLg29C8s22zr44OH9hjrgBlDEAZA1DGAJQxAGUMQBkDUNYVd8Crt6tnoqhwC0AJwEkARd+TSlkdwCYMVlqmOXvtyrnPaRZ3PojN1GrdA99bT2BkEkAh4Jw0NSHmxdax6P7toaHfLgNSOYhVq9WugW2zACNTyG/zgb830KYGts2bmVqtO42CTgHsNIqPAIwGnkuWlI5v43EahawBLK6sngJkKo3JZImBmVx69/F06DrWAEwzum6AVJZjxnQ1m62boYs4fAXJpdCTyCoBLoeuYQ9A7Pe0cyz4324/Bwh6ccBGy7bNyjrLNrIvdH2ehJUxAGUMQBkDUMYAlNkDMHxyIiSuAGUMQBkDUMYAlDEAZS4BcBcUEFeAMgagjAEoYwDKGIAy7oKUcQUoYwDKGIAyBqCMASizPhckgHTS+2biSvpcFFeAMgagjAEoYwDKGIAy+w80eC8oKK4AZQxAGQNQxgCUMQBlLu+KcN4FVSrrxYbZWwJwoe0ZZcvP0AVcVoDTvbj56kZvw+yVkZ/mA8C30AW8rIBKZb3YaOwuAjiffEoZYqQcukTi/wE5/eQDwL5EmAtdJHEAPY3dZeTtkw8ABs/HR4a+hi7jYxeUx+avbPXLgzRKcRv6r30YPNvqlzHXFzYlFfuVZTm0A2BTYCpSKMyNlc5+SbO413PAfwMF0+Mjww/bHd8Jgn0FsfluggTA5rvzHgCbH4/Xp6PZ/Pi8rQA2vz1eAmDz25c4ADY/mUQBsPnJtR0Am+9HW7sgNt+f2CuAzfcrVgBsvn/OAbD5YTgFwOYrer28Nq09ByIiojz6A21EunEpV9NIAAAAAElFTkSuQmCC"/>
+    </pattern>
+    <filter id="Rectangle_239-2" x="1006" y="99.002" width="484" height="924" filterUnits="userSpaceOnUse">
+      <feOffset dy="30" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="18" result="blur-4"/>
+      <feFlood flood-opacity="0.043"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_239-3" x="1046" y="233.002" width="256" height="296" filterUnits="userSpaceOnUse">
+      <feOffset dy="26" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="18" result="blur-5"/>
+      <feFlood flood-color="#8c7ef4" flood-opacity="0.141"/>
+      <feComposite operator="in" in2="blur-5"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_243" x="1046" y="522.002" width="138" height="110.6" filterUnits="userSpaceOnUse">
+      <feOffset dy="26" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="18" result="blur-6"/>
+      <feFlood flood-color="#8c7ef4" flood-opacity="0.141"/>
+      <feComposite operator="in" in2="blur-6"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_244" x="1083" y="521.002" width="112" height="112" filterUnits="userSpaceOnUse">
+      <feOffset dy="26" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="18" result="blur-7"/>
+      <feFlood flood-color="#8c7ef4" flood-opacity="0.141"/>
+      <feComposite operator="in" in2="blur-7"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path-3">
+      <rect width="305" height="146" fill="none"/>
+    </clipPath>
+    <filter id="Path_503" x="1332" y="744.002" width="106" height="106" filterUnits="userSpaceOnUse">
+      <feOffset dy="12" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="8" result="blur-8"/>
+      <feFlood flood-color="#8c7ef4" flood-opacity="0.361"/>
+      <feComposite operator="in" in2="blur-8"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <pattern id="pattern-6" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 96 96">
+      <image width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAAEpklEQVR4nO2aMWwbVRjH/+/OSkBRuwQUqRKDB1iqMiSxSafKlUgcu7ELRUWiCIkKViqmwhaxQBcGBiRQKwRIHUIr4bNT+0pUKVXU1nYcgRBCYqlY2oEBFBWUpPV9DFA1QGu/u3u+74V8v9G59/xyP9n3fr4DBEEQBEEQBEEQdhA1vzNR8zsT3OuIg8O9gKh4fudwQMGVgIJlz2/Pcq8nKjtSQNVvnQAFdQB7AYyA4FX89knudUVhxwmoNFqniNQXAIa2vZxShLOVenueaVmRUdwL0IWIVNVffR/A6Z4HKvpo7Xrm7fl5FSSzsnjsCAELCz8MPbb3988A9YrmkIt7hu+8msvlNga6MANYL8D3vxvZpK0LAPKhBhJdSVHwQqEwtT6YlZnBagGVpRtj6p67CCDSVlMpfB8oN1+eHr9leGnGsFaA5zfTINcH6OmYU910u0G+WHzuJyMLM4yVu6Ca35kAOdcNnHwASHdd51q13jxoYC7jWCfgfmABGDM47Sgp5xsbg80qAf8KrP4onIPCOc3pR0D4uuq3TkRe4ACwRsAjAqsXZ+amJ98szWTeANQ7mmOGiNSXNgUb+0VYO7Ae0AXRW6XZ7MfbX6z47ZOK8AmAlNYslgQbq4AIgbUJ0GulfHbhYX+s+qtHCXQehMc152MPNjYBEQLrN1JULs9kr/Y6yLvUmYIT1ACMas3KHGwsAsIGlgJuOw4VitPZb3WO9xqt/YCqA3hKa37GYEtcQITA+tHturPF4vjPYd6ncnltn0PdBhEOaA5hCbZEd0ERAquVCtxDYU8+AJSnx2+pu8OHAKxoDkl3Xeead6kzFfa94pCYgNCBRaiquypXKIz/EvU9jxx59tc9w3eeB3BRc8gonGApyWBLREDYwFJEn99+Uh2bm5v8I+5753K5jY31my+D8KnmkETvsA38GlBptE4pqA+hL/vM3Mzku0opMr0Wr7F6GqAPNA8nIrxXns3Mm17HdgYmwFRgmca2YBuIANOBZRqbgs24gCiBhYCOlgrZZdNr6UW13jxIyqmCOdiMChh0YJnGhmAzJsDzm2kip6GAZzSHRAos03AHm5Ft6P3ACnHyIweWabiDLbaA8HewqBY3sEzDGWyxBEQKrCecF00Elmm4gi3yNcCmwDJNksEWWoCtgWWapIItlIAIgQUAL5XyGd3vVqvwGu1jAC7oj6DzG+sjrx8/vn9Ld4S2gL8D6ysAoS48pXyG/b5zHLxGO9xXZshg0/r+rizdGNukrWWEPPm7EqUOd113pXJ5bZ/O4X0FeH4zjXvuVUR8PnM3QoQDKuiuLC42+3ZRTwERAkt4gFawPVLAgB4R3G30DbaHCgj9iKDQi57B9h8BER4RFPqTUoSzfwXeP4m9Rey3Tfu/b0Pj/n/WPJy7WxEBzIgAZvR+aEqQ0OkfEtuuSfIJYEYEMCMCmBEBzIgAZkQAMyKAGes6oB/99vGD7gjTyCeAGRHAjAhgRgQwIwKYEQHMiABmRAAzIoAZEcCMCGBGBDAjApgRAcyIAGYGfj/Att/nbVuPfAKYEQHMiABmRAAzIoAZEcCMCBAEQRAEQRAEQRAEQRCEhPgTPsRgE0L0L74AAAAASUVORK5CYII="/>
+    </pattern>
+    <pattern id="pattern-9" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 96 96">
+      <image width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAADfUlEQVR4nO3dwU4TQRwG8G+2hTbYeuBMlIvhYIi+ggoHvBjR8AKQeOphEfFoORFJpSbERBOegCjiBQMaEt9AEr0buXMQjJWWHQ8CgSDSGWbnv8t+v/vsTL5vu1tmEgoQEREREREREVFWqLNeIAyX+nMqGtMKtxR0L6AuOFhXgumfGupbAHzUCvO12vCXs1zNuoBKZblQKPyqQ6sHAIKzLCLFIkC9LJWbYbU6smNzAasCKpXlQmdn470CbtiMP4fWSuXWkE0JVndusbPxnOEfcXNrKz9rM9D4ExCGS/25IPqM7D52TrKbi6JrT+v3v5oMMg4xp6Ixm3EZkIuCYNR0kHmQCgPGYzJCA4OmY2zu5EsWY7LisukAmwJKFmOyomw6gM9yYSxAGAsQxgKEsQBhLEAYCxCWF5p3Q2kVqnywOjNzZ0toDQCAycl35ShqDUCraQB9vueXKGBjN2pdr9dHNgXmPmbvBngbhgufckF+HUCPz/m9P4KUVmFSwj+sXh/ZVBrjvuf1X0A+WPU9Z7sazeKK7zn5Ej6kq2v7zGfkprwXEEWtxG5nR80O72vz/wnQajoMF7q9z3uKMFzo1kpP+55X4ltQXy7Irz8aXxxvNIsrc3O3fwis4UClsnyx2PF7cC/8K77nl/o7oEcrLBQ6G5h4uCi0hH0NaMHZ+RIWxgKEsQBhLEAYCxDGAoSxAGGpOw+Q3r93LXXnAdL7966l9jxAav/etVSfB0js37uW6pewxP69a6k+D5DYv3cttecBUvv3rqXuPEB6/961FJ4HyO7fu5bql/B5wAKEsQBhUu8Ab2rPhp3/rTAx8aYKrZ64uBY/AYZchg+wACOuwwdYQNviCB9gAW1pO3ytqqbXZgGnMAm/Nnt3yvT6LOA/4g4fYAEn8hE+wAL+yVf4AAs4xmf4AAs4wnf4AAs4IBE+wAIAyIUPsADR8IGMFyAdPpDhApIQPpDRApISPpDBApIUPpCxApIWPpChApIYPmBXwLbzVcQsqeEDdgV8d76KGLUdvtJTvsMHLApQwIc4FhKbdu/82r1q/Is5zrgArTAPYDeGtcgQuvP3GRfw9zdT1Ks4FuOd0lNSd/4+q29BpXIzBLDmeC1+JSB8wLKAanVkp1RuDWngBdL4OEpI+ICDn7F6HL6+GgXB6N6PF/Qi6f/ePkHhExERERERERFRtvwBfON1M+IpDRAAAAAASUVORK5CYII="/>
+    </pattern>
+    <image id="image" width="18" height="18" xlink:href="data:image/png;base64,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"/>
+  </defs>
+  <g id="Group_321" data-name="Group 321" transform="translate(10898 -14684.998)">
+    <g id="Group_329" data-name="Group 329">
+      <rect id="Image_71" data-name="Image 71" width="1600" height="1200" transform="translate(-10898 14685)" fill="#f5ede1"/>
+      <path id="Path_496" data-name="Path 496" d="M-9941.342,14662.608s-166,271.951-166,571.677,166,627.23,166,627.23H-9298V14662.608Z" transform="translate(0 22.39)" fill="#fff"/>
+      <path id="Path_497" data-name="Path 497" d="M-9298,15155.035v728.871h-345.541s-29.559-240.889,56.826-423.106S-9298,15155.035-9298,15155.035Z" fill="#f5ede1"/>
+      <text id="nudge." transform="translate(-9555 15815)" fill="#3b28c7" font-size="56" font-family="GalanoGrotesque-SemiBold" font-weight="600"><tspan x="0" y="0">nudge.</tspan></text>
+    </g>
+    <g id="Group_305" data-name="Group 305">
+      <g transform="matrix(1, 0, 0, 1, -10898, 14685)" filter="url(#Rectangle_239)">
+        <rect id="Rectangle_239-4" data-name="Rectangle 239" width="376" height="816" rx="43" transform="translate(165 270)" fill="#fff"/>
+      </g>
+      <text id="nudge.-2" data-name="nudge." transform="translate(-10593 15372)" fill="#3b28c7" font-size="29" font-family="GalanoGrotesque-SemiBold" font-weight="600"><tspan x="0" y="0">nudge.</tspan></text>
+    </g>
+    <g id="Group_308" data-name="Group 308" transform="translate(447 -79)">
+      <g transform="matrix(1, 0, 0, 1, -11345, 14764)" filter="url(#Path_498)">
+        <path id="Path_498-2" data-name="Path 498" d="M43,0H333a43,43,0,0,1,43,43V773a43,43,0,0,1-43,43H43A43,43,0,0,1,0,773V43A43,43,0,0,1,43,0Z" transform="translate(612 191)" fill="#e5f0ff"/>
+      </g>
+      <text id="Hi_Chizi" data-name="Hi Chizi" transform="translate(-10690 15074)" fill="#333d8a" font-size="29" font-family="GalanoGrotesque-SemiBold" font-weight="600"><tspan x="0" y="0">Hi Chizi</tspan></text>
+      <text id="Mon_8_Dec" data-name="Mon 8 Dec" transform="translate(-10458 15023)" fill="#333d8a" font-size="14" font-family="GalanoGrotesque-SemiBold" font-weight="600"><tspan x="0" y="0">Mon </tspan><tspan y="0" font-family="GalanoGrotesqueAlt-Regular" font-weight="400">8 Dec</tspan></text>
+      <text id="Here_is_a_list_of_schedule_you_need_to_check_" data-name="Here is a list of schedule
+you need to check…" transform="translate(-10690 15107)" fill="#333d8a" font-size="14" font-family="GalanoGrotesqueAlt-Regular"><tspan x="0" y="0">Here is a list of schedule</tspan><tspan x="0" y="25">you need to check…</tspan></text>
+      <g transform="matrix(1, 0, 0, 1, -11345, 14764)" filter="url(#Rectangle_240)">
+        <rect id="Rectangle_240-2" data-name="Rectangle 240" width="377" height="566" rx="43" transform="translate(612 443)" fill="#fff"/>
+      </g>
+      <text id="TODAY_CLASSES_3_" data-name="TODAY CLASSES (3)" transform="translate(-10708 15254)" fill="#141414" font-size="14" font-family="GalanoGrotesque-SemiBold" font-weight="600"><tspan x="0" y="0">TODAY CLASSES </tspan><tspan y="0" fill="#989898" font-size="13" font-family="GalanoGrotesqueAlt-Regular" font-weight="400">(3)</tspan></text>
+      <text id="See_all" data-name="See all" transform="translate(-10432 15254)" fill="#3e2cc8" font-size="14" font-family="GalanoGrotesque-SemiBold" font-weight="600"><tspan x="0" y="0">See all</tspan></text>
+      <g id="Repeat_Grid_16" data-name="Repeat Grid 16" transform="translate(-10722 15284)" clip-path="url(#clip-path)">
+        <g id="Group_314" data-name="Group 314" transform="translate(10327 -15223)">
+          <rect id="Rectangle_241" data-name="Rectangle 241" width="355" height="97" rx="16" transform="translate(-10327 15223)" fill="#f9f9fc"/>
+          <line id="Line_50" data-name="Line 50" y2="97" transform="translate(-10258.5 15223.5)" fill="none" stroke="#e5e5e5" stroke-width="1"/>
+          <text id="_09:30_AM" data-name="09:30
+AM" transform="translate(-10295 15263)" fill="#959595" font-size="14" font-family="GalanoGrotesque-SemiBold" font-weight="600"><tspan fill="#000"><tspan x="-19.264" y="0">09:30</tspan></tspan><tspan font-family="GalanoGrotesqueAlt-Regular" font-weight="400"><tspan x="-11.137" y="25">AM</tspan></tspan></text>
+          <text id="Advanced_Mathematic_III_:_Vectors_" data-name="Advanced Mathematic III : Vectors…" transform="translate(-10111 15264)" fill="#4e4e4e" font-size="15" font-family="GalanoGrotesque-Medium" font-weight="500"><tspan x="-130.485" y="0">Advanced Mathematic III : Vectors…</tspan></text>
+          <g id="Group_315" data-name="Group 315" transform="translate(0 8)">
+            <text id="Room_412_Faculty_of_Mathematics_" data-name="Room 412, Faculty of Mathematics…" transform="translate(-10111 15277)" fill="#9f9f9f" font-size="12" font-family="GalanoGrotesqueAlt-Regular"><tspan x="-101.892" y="0">Room 412, Faculty of Mathematics…</tspan></text>
+            <use id="icons8-location_filled" transform="translate(-10241 15265)" xlink:href="#image"/>
+          </g>
+        </g>
+        <g id="Group_314-2" data-name="Group 314" transform="translate(10327 -15105)">
+          <rect id="Rectangle_241-2" data-name="Rectangle 241" width="355" height="97" rx="16" transform="translate(-10327 15223)" fill="#f9f9fc"/>
+          <line id="Line_50-2" data-name="Line 50" y2="97" transform="translate(-10258.5 15223.5)" fill="none" stroke="#e5e5e5" stroke-width="1"/>
+          <text id="_09:30_AM-2" data-name="09:30
+AM" transform="translate(-10295 15263)" fill="#959595" font-size="14" font-family="GalanoGrotesque-SemiBold" font-weight="600"><tspan fill="#000"><tspan x="-19.264" y="0">09:30</tspan></tspan><tspan font-family="GalanoGrotesqueAlt-Regular" font-weight="400"><tspan x="-11.137" y="25">AM</tspan></tspan></text>
+          <text id="Advanced_Mathematic_III_:_Vectors_2" data-name="Advanced Mathematic III : Vectors…" transform="translate(-10111 15264)" fill="#4e4e4e" font-size="15" font-family="GalanoGrotesque-Medium" font-weight="500"><tspan x="-130.485" y="0">Advanced Mathematic III : Vectors…</tspan></text>
+          <g id="Group_315-2" data-name="Group 315" transform="translate(0 8)">
+            <text id="Room_412_Faculty_of_Mathematics_2" data-name="Room 412, Faculty of Mathematics…" transform="translate(-10111 15277)" fill="#9f9f9f" font-size="12" font-family="GalanoGrotesqueAlt-Regular"><tspan x="-101.892" y="0">Room 412, Faculty of Mathematics…</tspan></text>
+            <use id="icons8-location_filled-2" data-name="icons8-location_filled" transform="translate(-10241 15265)" xlink:href="#image"/>
+          </g>
+        </g>
+      </g>
+      <g id="Group_317" data-name="Group 317" transform="translate(-393 55)">
+        <path id="Path_501" data-name="Path 501" d="M10,0H153a10,10,0,0,1,10,10V144a10,10,0,0,1-10,10H10A10,10,0,0,1,0,144V10A10,10,0,0,1,10,0Z" transform="translate(-10329 15514)" fill="#fef5f6"/>
+        <text id="Deadine" transform="translate(-10289 15538)" fill="#ccc" font-size="10" font-family="GalanoGrotesqueAlt-Regular"><tspan x="-19.945" y="0">Deadine</tspan></text>
+        <g id="Group_316" data-name="Group 316">
+          <text id="_3_days_left" data-name="3 days left" transform="translate(-10267 15559)" font-size="12" font-family="GalanoGrotesqueAlt-Regular"><tspan x="-29.862" y="0">3 days left</tspan></text>
+          <circle id="Ellipse_190" data-name="Ellipse 190" cx="3.5" cy="3.5" r="3.5" transform="translate(-10309 15552)" fill="#ff5a5a"/>
+        </g>
+        <text id="Design_and_Develop_A_Schedule_for_Students_" data-name="Design and Develop
+A Schedule for 
+Students…" transform="translate(-10309 15585)" font-size="12" font-family="GalanoGrotesque-Medium" font-weight="500"><tspan x="0" y="0">Design and Develop</tspan><tspan x="0" y="21">A Schedule for </tspan><tspan x="0" y="42">Students…</tspan></text>
+        <text id="GSP_232" data-name="GSP 232" transform="translate(-10237 15652)" fill="#a7a7a7" font-size="12" font-family="GalanoGrotesque-Medium" font-weight="500"><tspan x="0" y="0">GSP 232</tspan></text>
+      </g>
+      <g id="Repeat_Grid_17" data-name="Repeat Grid 17" transform="translate(-10548 15569)" clip-path="url(#clip-path-2)">
+        <g id="Group_317-2" data-name="Group 317" transform="translate(10329 -15514)">
+          <path id="Path_501-2" data-name="Path 501" d="M10,0H153a10,10,0,0,1,10,10V144a10,10,0,0,1-10,10H10A10,10,0,0,1,0,144V10A10,10,0,0,1,10,0Z" transform="translate(-10329 15514)" fill="#f4fdf8"/>
+          <text id="Deadine-2" data-name="Deadine" transform="translate(-10289 15538)" fill="#ccc" font-size="10" font-family="GalanoGrotesqueAlt-Regular"><tspan x="-19.945" y="0">Deadine</tspan></text>
+          <g id="Group_316-2" data-name="Group 316">
+            <text id="_13_days_left" data-name="13 days left" transform="translate(-10267 15559)" font-size="12" font-family="GalanoGrotesqueAlt-Regular"><tspan x="-31.992" y="0">13 days left</tspan></text>
+            <circle id="Ellipse_190-2" data-name="Ellipse 190" cx="3.5" cy="3.5" r="3.5" transform="translate(-10309 15552)" fill="#23eb32"/>
+          </g>
+          <text id="Write_an_Essay_On_the_Advantages_Of_" data-name="Write an Essay
+On the Advantages
+Of " transform="translate(-10309 15585)" font-size="12" font-family="GalanoGrotesque-Medium" font-weight="500"><tspan x="0" y="0">Write an Essay</tspan><tspan x="0" y="21">On the Advantages</tspan><tspan x="0" y="42">Of </tspan></text>
+          <text id="GSP_232-2" data-name="GSP 232" transform="translate(-10237 15652)" fill="#a7a7a7" font-size="12" font-family="GalanoGrotesque-Medium" font-weight="500"><tspan x="0" y="0">GSP 232</tspan></text>
+        </g>
+        <g id="Group_317-3" data-name="Group 317" transform="translate(10502 -15514)">
+          <path id="Path_501-3" data-name="Path 501" d="M10,0H153a10,10,0,0,1,10,10V144a10,10,0,0,1-10,10H10A10,10,0,0,1,0,144V10A10,10,0,0,1,10,0Z" transform="translate(-10329 15514)" fill="#f4fdf8"/>
+          <text id="Deadine-3" data-name="Deadine" transform="translate(-10289 15538)" fill="#ccc" font-size="10" font-family="GalanoGrotesqueAlt-Regular"><tspan x="-19.945" y="0">Deadine</tspan></text>
+          <g id="Group_316-3" data-name="Group 316">
+            <text id="_13_days_left-2" data-name="13 days left" transform="translate(-10267 15559)" font-size="12" font-family="GalanoGrotesqueAlt-Regular"><tspan x="-31.992" y="0">13 days left</tspan></text>
+            <circle id="Ellipse_190-3" data-name="Ellipse 190" cx="3.5" cy="3.5" r="3.5" transform="translate(-10309 15552)" fill="#23eb32"/>
+          </g>
+          <text id="Write_an_Essay_On_the_Advantages_Of_2" data-name="Write an Essay
+On the Advantages
+Of " transform="translate(-10309 15585)" font-size="12" font-family="GalanoGrotesque-Medium" font-weight="500"><tspan x="0" y="0">Write an Essay</tspan><tspan x="0" y="21">On the Advantages</tspan><tspan x="0" y="42">Of </tspan></text>
+          <text id="GSP_232-3" data-name="GSP 232" transform="translate(-10237 15652)" fill="#a7a7a7" font-size="12" font-family="GalanoGrotesque-Medium" font-weight="500"><tspan x="0" y="0">GSP 232</tspan></text>
+        </g>
+      </g>
+      <text id="Assignments_2_" data-name="Assignments (2)" transform="translate(-10708 15548)" fill="#141414" font-size="14" font-family="GalanoGrotesque-SemiBold" font-weight="600"><tspan x="0" y="0">Assignments </tspan><tspan y="0" fill="#989898" font-size="13" font-family="GalanoGrotesqueAlt-Regular" font-weight="400">(2)</tspan></text>
+      <text id="See_all-2" data-name="See all" transform="translate(-10432 15548)" fill="#3e2cc8" font-size="14" font-family="GalanoGrotesque-SemiBold" font-weight="600"><tspan x="0" y="0">See all</tspan></text>
+    </g>
+    <g id="Group_319" data-name="Group 319">
+      <path id="Rectangle_242" data-name="Rectangle 242" d="M0,0H377a0,0,0,0,1,0,0V58a43,43,0,0,1-43,43H43A43,43,0,0,1,0,58V0A0,0,0,0,1,0,0Z" transform="translate(-10286 15593)" fill="#f9f9fc"/>
+      <rect id="icons8-a_home" width="26" height="26" transform="translate(-10261 15612)" fill="url(#pattern)"/>
+      <rect id="icons8-overview_pages_3" width="26" height="26" transform="translate(-10186 15612)" fill="url(#pattern-2)"/>
+      <rect id="icons8-calendar" width="26" height="26" transform="translate(-10110 15612)" fill="url(#pattern-3)"/>
+      <rect id="icons8-note" width="26" height="26" transform="translate(-10035 15612)" fill="url(#pattern-4)"/>
+      <rect id="icons8-filled_chat" width="26" height="26" transform="translate(-9960 15612)" fill="url(#pattern-5)"/>
+    </g>
+    <g id="Group_331" data-name="Group 331" transform="translate(419 -1409)">
+      <g id="Group_322" data-name="Group 322" transform="translate(476 1262)">
+        <g transform="matrix(1, 0, 0, 1, -11793, 14832)" filter="url(#Rectangle_239-2)">
+          <rect id="Rectangle_239-5" data-name="Rectangle 239" width="376" height="816" rx="43" transform="translate(1060 123)" fill="#fff"/>
+        </g>
+      </g>
+      <g id="Group_323" data-name="Group 323" transform="translate(-10217 16355)">
+        <g transform="matrix(1, 0, 0, 1, -1100, -261)" filter="url(#Rectangle_239-3)">
+          <rect id="Rectangle_239-6" data-name="Rectangle 239" width="148" height="188" rx="22" transform="translate(1100 261)" fill="#3b76ff"/>
+        </g>
+        <text id="Notes" transform="translate(21 43)" fill="#fff" font-size="21" font-family="GalanoGrotesque-Medium" font-weight="500"><tspan x="0" y="0">Notes</tspan></text>
+        <text id="_143" data-name="143" transform="translate(21 162)" fill="#fff" font-size="26" font-family="GalanoGrotesque-Medium" font-weight="500"><tspan x="0" y="0">143</tspan></text>
+      </g>
+      <g id="Group_324" data-name="Group 324" transform="translate(-10054.287 16355)">
+        <rect id="Rectangle_239-7" data-name="Rectangle 239" width="147" height="188" rx="22" transform="translate(0.287)" fill="#f6f7fb"/>
+        <text id="Important" transform="translate(21.287 43)" fill="#a0a0a0" font-size="21" font-family="GalanoGrotesque-Medium" font-weight="500"><tspan x="0" y="0">Important</tspan></text>
+        <text id="_10" data-name="10" transform="translate(21.287 162)" fill="#080808" font-size="26" font-family="GalanoGrotesque-Medium" font-weight="500"><tspan x="0" y="0">10</tspan></text>
+      </g>
+      <text id="Notes-2" data-name="Notes" transform="translate(-10217 16631)" font-size="22" font-family="GalanoGrotesque-Medium" font-weight="500"><tspan x="0" y="0">Notes</tspan></text>
+      <g id="Group_325" data-name="Group 325" transform="translate(-3 5)">
+        <g transform="matrix(1, 0, 0, 1, -11314, 16089)" filter="url(#Rectangle_243)">
+          <rect id="Rectangle_243-2" data-name="Rectangle 243" width="30" height="2.6" rx="1.3" transform="translate(1100 550)" fill="#3b76ff"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, -11314, 16089)" filter="url(#Rectangle_244)">
+          <rect id="Rectangle_244-2" data-name="Rectangle 244" width="4" height="4" rx="2" transform="translate(1137 549)" fill="#3b76ff"/>
+        </g>
+      </g>
+      <text id="Important-2" data-name="Important" transform="translate(-10016 16631)" fill="#c3c3c3" font-size="22" font-family="GalanoGrotesque-Medium" font-weight="500"><tspan x="0" y="0">Important</tspan></text>
+      <g id="Group_326" data-name="Group 326" transform="translate(6 -1)">
+        <rect id="Rectangle_245" data-name="Rectangle 245" width="305" height="188" rx="23" transform="translate(-10227 16680)" fill="#f6f7fb"/>
+        <text id="CVE_212_Notes" data-name="CVE 212 Notes" transform="translate(-10196 16724)" font-size="18" font-family="GalanoGrotesque-Medium" font-weight="500"><tspan x="0" y="0">CVE 212 Notes</tspan></text>
+        <text id="Introduction_to_structural_analysis._Displacement_methods:_slope_deflection_moment_distribution_special_topics._Stiffness_method_derivation_of_element_stiffness_matrices_assembly_procedures._Computerized_implementation_of_the_stiffness_method_and_use_o" data-name="Introduction to structural analysis. Displacement methods: slope deflection, moment distribution, special topics. Stiffness method, derivation of element stiffness matrices, assembly procedures. Computerized implementation of the stiffness method and use o" transform="translate(-10196 16743)" fill="#5f5f5f" font-size="12" font-family="GalanoGrotesqueAlt-Regular"><tspan x="0" y="9">Introduction to structural analysis. </tspan><tspan x="0" y="29">Displacement methods: slope deflection, </tspan><tspan x="0" y="49">moment distribution, special topics. Stiffness </tspan><tspan x="0" y="69">method, derivation of element stiffness </tspan></text>
+        <text id="_8_Dec" data-name="8 Dec" transform="translate(-10196 16842)" fill="#ccc2d8" font-size="16" font-family="GalanoGrotesque-Medium" font-weight="500"><tspan x="0" y="0">8 Dec</tspan></text>
+        <text id="_2:40" data-name="2:40" transform="translate(-9969 16723)" fill="#ccc2d8" font-size="14" font-family="GalanoGrotesque-Medium" font-weight="500"><tspan x="0" y="0">2:40</tspan></text>
+      </g>
+      <g id="Repeat_Grid_18" data-name="Repeat Grid 18" transform="translate(-10221 16887)" clip-path="url(#clip-path-3)">
+        <g id="Group_326-2" data-name="Group 326" transform="translate(10227 -16680)">
+          <rect id="Rectangle_245-2" data-name="Rectangle 245" width="305" height="188" rx="23" transform="translate(-10227 16680)" fill="#f6f7fb"/>
+          <text id="CVE_242_Notes" data-name="CVE 242 Notes" transform="translate(-10196 16724)" font-size="18" font-family="GalanoGrotesque-Medium" font-weight="500"><tspan x="0" y="0">CVE 242 Notes</tspan></text>
+          <text id="Introduction_to_structural_analysis._Displacement_methods:_slope_deflection_moment_distribution_special_topics._Stiffness_method_derivation_of_element_stiffness_matrices_assembly_procedures._Computerized_implementation_of_the_stiffness_method_and_use_o-2" data-name="Introduction to structural analysis. Displacement methods: slope deflection, moment distribution, special topics. Stiffness method, derivation of element stiffness matrices, assembly procedures. Computerized implementation of the stiffness method and use o" transform="translate(-10196 16743)" fill="#5f5f5f" font-size="12" font-family="GalanoGrotesqueAlt-Regular"><tspan x="0" y="9">Introduction to structural analysis. </tspan><tspan x="0" y="29">Displacement methods: slope deflection, </tspan><tspan x="0" y="49">moment distribution, special topics. Stiffness </tspan><tspan x="0" y="69">method, derivation of element stiffness </tspan></text>
+          <text id="_8_Dec-2" data-name="8 Dec" transform="translate(-10196 16842)" fill="#ccc2d8" font-size="16" font-family="GalanoGrotesque-Medium" font-weight="500"><tspan x="0" y="0">8 Dec</tspan></text>
+          <text id="_3:40" data-name="3:40" transform="translate(-9969 16723)" fill="#ccc2d8" font-size="14" font-family="GalanoGrotesque-Medium" font-weight="500"><tspan x="0" y="0">3:40</tspan></text>
+        </g>
+      </g>
+      <text id="Notes." transform="translate(-10217 16298)" fill="#3b28c7" font-size="29" font-family="GalanoGrotesque-SemiBold" font-weight="600"><tspan x="0" y="0">Notes.</tspan></text>
+      <g id="Group_327" data-name="Group 327" transform="translate(13 -37)">
+        <g transform="matrix(1, 0, 0, 1, -11330, 16131)" filter="url(#Path_503)">
+          <path id="Path_503-2" data-name="Path 503" d="M29,0A29,29,0,1,1,0,29,29,29,0,0,1,29,0Z" transform="translate(1356 756)" fill="#3b76ff"/>
+        </g>
+        <image id="icons8-plus_math" width="23" height="23" transform="translate(-9956 16905)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABmJLR0QA/wD/AP+gvaeTAAACwUlEQVR4nO3dsU4UURiG4e+AKGJDZSyEwhuwNAYjFhaaqNFQ6x0Y70NL4w1YGRIrLbSWaG0tEnXFFhNDFDbyWswSCxXPGZidf5jvSejOGf7wZjM7k9lFMjMzMzMzM+s6YAaYaXuOXgPmgEfAF35bBx4Cc23P1yvAErDJv30DbrY9Zy8Al4HhHjF2bQOX2p73UAOmgPcZMXatAUfbnvvQAm4VxNh1o+25S0y0PUChxTHtaU3XgpyssefUgU/RoK4FOVJjz9SBT9GgrgU59BwkGAcJxkGCcZBgHCQYBwnGQYJxkGAcJBgHCcZBgnGQYBwkGAcJxkGCcZBgHCQYBwnGQYJxkGAcJBgHCcZBgnGQYFKdTcCkpKuSFiTNSRrXE+bnJZ0u3PNZ0psGZvmbbUkDSSuSXqSUfpYeoDgIsCDpsaQzpXt7Zk3S7ZTS65JNRUFGj/Y/Vb1nbPtoKGkppfQsd0N2EGBe0ltJszUG67Ovks6mlD7lLC45qd+TY9QxK+lu7uKSV8hA5SdUqwxSSvM5C7OCAMclbeautz8g6URK6fv/Fvo6ZHzIWZQVZFR2fV/j9NsgpfQjZ2HJK+RJzWGs4G/nt73Na+Zt7+iAd1Rd7Fieoaqr9awYUuFJfXTFuShptXCwPlqVdDGl9LxkU92bixOSrki6oOrm4rE6x6kh+s3FLVU3F19JeplS2hnT720HsFzjqzWW2567hK9DgnGQYBwkGAcJxkGCcZBgHCQYBwnGQYJxkGAcJBgHCcZBgnGQYBwkGAcJxkGCcZBgHCQYBwnGQYJxkGAcJBgHCcZBgulakO0ae7YOfIoGdS3IoMae7CfPI+hakJUx7bEcwCRl/1jy3ehJfWsKcA7YyogxpPoaEGsacB3Y2CPGBnCt7Tl7BZgHHgAfgZ3RzwfgPtXnIa0twDQw3fYcZmZmZmZmZvv2C0uLFMF8iX81AAAAAElFTkSuQmCC"/>
+      </g>
+      <g id="Group_332" data-name="Group 332" transform="translate(29 1339)">
+        <path id="Rectangle_242-2" data-name="Rectangle 242" d="M0,0H376a0,0,0,0,1,0,0V58a43,43,0,0,1-43,43H43A43,43,0,0,1,0,58V0A0,0,0,0,1,0,0Z" transform="translate(-10286 15593)" fill="#f9f9fc"/>
+        <rect id="icons8-a_home-2" data-name="icons8-a_home" width="26" height="26" transform="translate(-10261 15612)" fill="url(#pattern-6)"/>
+        <rect id="icons8-overview_pages_3-2" data-name="icons8-overview_pages_3" width="26" height="26" transform="translate(-10186 15612)" fill="url(#pattern-2)"/>
+        <rect id="icons8-calendar-2" data-name="icons8-calendar" width="26" height="26" transform="translate(-10111 15612)" fill="url(#pattern-3)"/>
+        <rect id="icons8-note-2" data-name="icons8-note" width="26" height="26" transform="translate(-10036 15612)" fill="url(#pattern-9)"/>
+        <rect id="icons8-filled_chat-2" data-name="icons8-filled_chat" width="26" height="26" transform="translate(-9961 15612)" fill="url(#pattern-5)"/>
+      </g>
+    </g>
+  </g>
+</svg>
