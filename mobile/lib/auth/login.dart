@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nudge/auth/signup.dart';
 import 'package:nudge/utils/margin.dart';
 import 'package:nudge/utils/theme.dart';
 import 'package:nudge/widgets/logo.dart';
@@ -71,7 +72,14 @@ class _LoginPageState extends State<LoginPage> {
                   textColor: white,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SignupPage(),
+                      ),
+                    );
+                  },
                   child: Text(
                     'Signup',
                     style:

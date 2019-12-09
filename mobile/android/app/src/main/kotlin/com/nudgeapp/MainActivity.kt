@@ -1,4 +1,4 @@
-package com.example.nudge
+package com.nudgeapp
 
 import android.os.Bundle
 

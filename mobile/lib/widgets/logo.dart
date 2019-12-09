@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nudge/utils/theme.dart';
 
 class Logo extends StatelessWidget {
   final double fontSize;
