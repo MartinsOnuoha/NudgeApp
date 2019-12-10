@@ -1,12 +1,13 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
-import HomeLayout from '../layouts/homelayout.vue';
+import { HomeLayout, AuthLayout } from '@/layouts'
+import Signin from '@/views/auth/signin'
+import Signup from '@/views/auth/signup'
 
 Vue.use(VueRouter);
 
 const routes = [
-
   {
     path: '/',
     name: 'home',
@@ -27,6 +28,22 @@ const routes = [
       },
     ]
   },
+  {
+    path: '/sessions',
+    component: AuthLayout,
+    children: [
+      {
+        path: 'signin',
+        name: 'Signin',
+        component: Signin
+      },
+      {
+        path: 'signup',
+        name: 'Signup',
+        component: Signup
+      }
+    ]
+  }
 
 ];
 

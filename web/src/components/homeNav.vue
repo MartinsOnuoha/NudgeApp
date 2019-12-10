@@ -39,10 +39,10 @@
                         <div class="megamenu"></div>
                       </li>
                       <li class="dropdown">
-                        <router-link to="/register">REGISTER</router-link>
+                        <router-link to="/sessions/register">REGISTER</router-link>
                       </li>
                       <li class="dropdown">
-                        <router-link to="/login">LOGIN</router-link>
+                        <router-link to="/sessions/signin">LOGIN</router-link>
                       </li>
                     </ul>
                   </div>

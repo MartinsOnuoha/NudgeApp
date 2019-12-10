@@ -1,0 +1,468 @@
+@font-face {
+    font-family: 'GalanoGrotesque';
+    src: url('GalanoGrotesque-BlackItalic.eot');
+    src: local('☞Galano Grotesque Black Italic'), local('GalanoGrotesque-BlackItalic'),
+        url('GalanoGrotesque-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-BlackItalic.woff2') format('woff2'),
+        url('GalanoGrotesque-BlackItalic.woff') format('woff'),
+        url('GalanoGrotesque-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAlt';
+    src: url('GalanoGrotesqueAlt-Heavy.eot');
+    src: local('☞Galano Grotesque Alt Heavy'), local('GalanoGrotesqueAlt-Heavy'),
+        url('GalanoGrotesqueAlt-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAlt-Heavy.woff2') format('woff2'),
+        url('GalanoGrotesqueAlt-Heavy.woff') format('woff'),
+        url('GalanoGrotesqueAlt-Heavy.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAlt';
+    src: url('GalanoGrotesqueAlt-LightItalic.eot');
+    src: local('☞Galano Grotesque Alt Light Italic'), local('GalanoGrotesqueAlt-LightItalic'),
+        url('GalanoGrotesqueAlt-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAlt-LightItalic.woff2') format('woff2'),
+        url('GalanoGrotesqueAlt-LightItalic.woff') format('woff'),
+        url('GalanoGrotesqueAlt-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAlt';
+    src: url('GalanoGrotesqueAlt-BlackItalic.eot');
+    src: local('☞Galano Grotesque Alt Black Italic'), local('GalanoGrotesqueAlt-BlackItalic'),
+        url('GalanoGrotesqueAlt-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAlt-BlackItalic.woff2') format('woff2'),
+        url('GalanoGrotesqueAlt-BlackItalic.woff') format('woff'),
+        url('GalanoGrotesqueAlt-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAlt';
+    src: url('GalanoGrotesqueAlt-Regular.eot');
+    src: local('☞Galano Grotesque Alt'), local('GalanoGrotesqueAlt-Regular'),
+        url('GalanoGrotesqueAlt-Regular.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAlt-Regular.woff2') format('woff2'),
+        url('GalanoGrotesqueAlt-Regular.woff') format('woff'),
+        url('GalanoGrotesqueAlt-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAlt';
+    src: url('GalanoGrotesqueAlt-ExtraLightItalic.eot');
+    src: local('☞Galano Grotesque Alt ExtraLight Italic'), local('GalanoGrotesqueAlt-ExtraLightItalic'),
+        url('GalanoGrotesqueAlt-ExtraLightItalic.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAlt-ExtraLightItalic.woff2') format('woff2'),
+        url('GalanoGrotesqueAlt-ExtraLightItalic.woff') format('woff'),
+        url('GalanoGrotesqueAlt-ExtraLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAltDEMO';
+    src: url('GalanoGrotesqueAltDEMO-Bold.eot');
+    src: local('☞Galano Grotesque Alt DEMO Bold'), local('GalanoGrotesqueAltDEMO-Bold'),
+        url('GalanoGrotesqueAltDEMO-Bold.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAltDEMO-Bold.woff2') format('woff2'),
+        url('GalanoGrotesqueAltDEMO-Bold.woff') format('woff'),
+        url('GalanoGrotesqueAltDEMO-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAlt';
+    src: url('GalanoGrotesqueAlt-SemiBold.eot');
+    src: local('☞Galano Grotesque Alt SemiBold'), local('GalanoGrotesqueAlt-SemiBold'),
+        url('GalanoGrotesqueAlt-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAlt-SemiBold.woff2') format('woff2'),
+        url('GalanoGrotesqueAlt-SemiBold.woff') format('woff'),
+        url('GalanoGrotesqueAlt-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesque';
+    src: url('GalanoGrotesque-Bold.eot');
+    src: local('☞Galano Grotesque Bold'), local('GalanoGrotesque-Bold'),
+        url('GalanoGrotesque-Bold.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-Bold.woff2') format('woff2'),
+        url('GalanoGrotesque-Bold.woff') format('woff'),
+        url('GalanoGrotesque-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAlt';
+    src: url('GalanoGrotesqueAlt-Light.eot');
+    src: local('☞Galano Grotesque Alt Light'), local('GalanoGrotesqueAlt-Light'),
+        url('GalanoGrotesqueAlt-Light.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAlt-Light.woff2') format('woff2'),
+        url('GalanoGrotesqueAlt-Light.woff') format('woff'),
+        url('GalanoGrotesqueAlt-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesque';
+    src: url('GalanoGrotesque-SemiBoldItalic.eot');
+    src: local('☞Galano Grotesque SemiBold Italic'), local('GalanoGrotesque-SemiBoldItalic'),
+        url('GalanoGrotesque-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-SemiBoldItalic.woff2') format('woff2'),
+        url('GalanoGrotesque-SemiBoldItalic.woff') format('woff'),
+        url('GalanoGrotesque-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesque';
+    src: url('GalanoGrotesque-MediumItalic.eot');
+    src: local('☞Galano Grotesque Medium Italic'), local('GalanoGrotesque-MediumItalic'),
+        url('GalanoGrotesque-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-MediumItalic.woff2') format('woff2'),
+        url('GalanoGrotesque-MediumItalic.woff') format('woff'),
+        url('GalanoGrotesque-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAlt';
+    src: url('GalanoGrotesqueAlt-Medium.eot');
+    src: local('☞Galano Grotesque Alt Medium'), local('GalanoGrotesqueAlt-Medium'),
+        url('GalanoGrotesqueAlt-Medium.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAlt-Medium.woff2') format('woff2'),
+        url('GalanoGrotesqueAlt-Medium.woff') format('woff'),
+        url('GalanoGrotesqueAlt-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesque';
+    src: url('GalanoGrotesque-BoldItalic.eot');
+    src: local('☞Galano Grotesque Bold Italic'), local('GalanoGrotesque-BoldItalic'),
+        url('GalanoGrotesque-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-BoldItalic.woff2') format('woff2'),
+        url('GalanoGrotesque-BoldItalic.woff') format('woff'),
+        url('GalanoGrotesque-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAlt';
+    src: url('GalanoGrotesqueAlt-Bold.eot');
+    src: local('☞Galano Grotesque Alt Bold'), local('GalanoGrotesqueAlt-Bold'),
+        url('GalanoGrotesqueAlt-Bold.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAlt-Bold.woff2') format('woff2'),
+        url('GalanoGrotesqueAlt-Bold.woff') format('woff'),
+        url('GalanoGrotesqueAlt-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueDEMO';
+    src: url('GalanoGrotesqueDEMO-Bold.eot');
+    src: local('☞Galano Grotesque DEMO Bold'), local('GalanoGrotesqueDEMO-Bold'),
+        url('GalanoGrotesqueDEMO-Bold.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueDEMO-Bold.woff2') format('woff2'),
+        url('GalanoGrotesqueDEMO-Bold.woff') format('woff'),
+        url('GalanoGrotesqueDEMO-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAlt';
+    src: url('GalanoGrotesqueAlt-ExtraBold.eot');
+    src: local('☞Galano Grotesque Alt ExtraBold'), local('GalanoGrotesqueAlt-ExtraBold'),
+        url('GalanoGrotesqueAlt-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAlt-ExtraBold.woff2') format('woff2'),
+        url('GalanoGrotesqueAlt-ExtraBold.woff') format('woff'),
+        url('GalanoGrotesqueAlt-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesque';
+    src: url('GalanoGrotesque-ExtraBoldItalic.eot');
+    src: local('☞Galano Grotesque ExtraBold Italic'), local('GalanoGrotesque-ExtraBoldItalic'),
+        url('GalanoGrotesque-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-ExtraBoldItalic.woff2') format('woff2'),
+        url('GalanoGrotesque-ExtraBoldItalic.woff') format('woff'),
+        url('GalanoGrotesque-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesque';
+    src: url('GalanoGrotesque-Heavy.eot');
+    src: local('☞Galano Grotesque Heavy'), local('GalanoGrotesque-Heavy'),
+        url('GalanoGrotesque-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-Heavy.woff2') format('woff2'),
+        url('GalanoGrotesque-Heavy.woff') format('woff'),
+        url('GalanoGrotesque-Heavy.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesque';
+    src: url('GalanoGrotesque-HeavyItalic.eot');
+    src: local('☞Galano Grotesque Heavy Italic'), local('GalanoGrotesque-HeavyItalic'),
+        url('GalanoGrotesque-HeavyItalic.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-HeavyItalic.woff2') format('woff2'),
+        url('GalanoGrotesque-HeavyItalic.woff') format('woff'),
+        url('GalanoGrotesque-HeavyItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAlt';
+    src: url('GalanoGrotesqueAlt-ThinItalic.eot');
+    src: local('☞Galano Grotesque Alt Thin Italic'), local('GalanoGrotesqueAlt-ThinItalic'),
+        url('GalanoGrotesqueAlt-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAlt-ThinItalic.woff2') format('woff2'),
+        url('GalanoGrotesqueAlt-ThinItalic.woff') format('woff'),
+        url('GalanoGrotesqueAlt-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAlt';
+    src: url('GalanoGrotesqueAlt-SemiBoldItalic.eot');
+    src: local('☞Galano Grotesque Alt SemiBold Italic'), local('GalanoGrotesqueAlt-SemiBoldItalic'),
+        url('GalanoGrotesqueAlt-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAlt-SemiBoldItalic.woff2') format('woff2'),
+        url('GalanoGrotesqueAlt-SemiBoldItalic.woff') format('woff'),
+        url('GalanoGrotesqueAlt-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAlt';
+    src: url('GalanoGrotesqueAlt-HeavyItalic.eot');
+    src: local('☞Galano Grotesque Alt Heavy Italic'), local('GalanoGrotesqueAlt-HeavyItalic'),
+        url('GalanoGrotesqueAlt-HeavyItalic.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAlt-HeavyItalic.woff2') format('woff2'),
+        url('GalanoGrotesqueAlt-HeavyItalic.woff') format('woff'),
+        url('GalanoGrotesqueAlt-HeavyItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAlt';
+    src: url('GalanoGrotesqueAlt-ExtraLight.eot');
+    src: local('☞Galano Grotesque Alt ExtraLight'), local('GalanoGrotesqueAlt-ExtraLight'),
+        url('GalanoGrotesqueAlt-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAlt-ExtraLight.woff2') format('woff2'),
+        url('GalanoGrotesqueAlt-ExtraLight.woff') format('woff'),
+        url('GalanoGrotesqueAlt-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAlt';
+    src: url('GalanoGrotesqueAlt-ExtraBoldItalic.eot');
+    src: local('☞Galano Grotesque Alt ExtraBold Italic'), local('GalanoGrotesqueAlt-ExtraBoldItalic'),
+        url('GalanoGrotesqueAlt-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAlt-ExtraBoldItalic.woff2') format('woff2'),
+        url('GalanoGrotesqueAlt-ExtraBoldItalic.woff') format('woff'),
+        url('GalanoGrotesqueAlt-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAlt';
+    src: url('GalanoGrotesqueAlt-BoldItalic.eot');
+    src: local('☞Galano Grotesque Alt Bold Italic'), local('GalanoGrotesqueAlt-BoldItalic'),
+        url('GalanoGrotesqueAlt-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAlt-BoldItalic.woff2') format('woff2'),
+        url('GalanoGrotesqueAlt-BoldItalic.woff') format('woff'),
+        url('GalanoGrotesqueAlt-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAlt';
+    src: url('GalanoGrotesqueAlt-Black.eot');
+    src: local('☞Galano Grotesque Alt Black'), local('GalanoGrotesqueAlt-Black'),
+        url('GalanoGrotesqueAlt-Black.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAlt-Black.woff2') format('woff2'),
+        url('GalanoGrotesqueAlt-Black.woff') format('woff'),
+        url('GalanoGrotesqueAlt-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesque';
+    src: url('GalanoGrotesque-SemiBold.eot');
+    src: local('☞Galano Grotesque SemiBold'), local('GalanoGrotesque-SemiBold'),
+        url('GalanoGrotesque-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-SemiBold.woff2') format('woff2'),
+        url('GalanoGrotesque-SemiBold.woff') format('woff'),
+        url('GalanoGrotesque-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAlt';
+    src: url('GalanoGrotesqueAlt-MediumItalic.eot');
+    src: local('☞Galano Grotesque Alt Medium Italic'), local('GalanoGrotesqueAlt-MediumItalic'),
+        url('GalanoGrotesqueAlt-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAlt-MediumItalic.woff2') format('woff2'),
+        url('GalanoGrotesqueAlt-MediumItalic.woff') format('woff'),
+        url('GalanoGrotesqueAlt-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesque';
+    src: url('GalanoGrotesque-Medium.eot');
+    src: local('☞Galano Grotesque Medium'), local('GalanoGrotesque-Medium'),
+        url('GalanoGrotesque-Medium.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-Medium.woff2') format('woff2'),
+        url('GalanoGrotesque-Medium.woff') format('woff'),
+        url('GalanoGrotesque-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesque';
+    src: url('GalanoGrotesque-LightItalic.eot');
+    src: local('☞Galano Grotesque Light Italic'), local('GalanoGrotesque-LightItalic'),
+        url('GalanoGrotesque-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-LightItalic.woff2') format('woff2'),
+        url('GalanoGrotesque-LightItalic.woff') format('woff'),
+        url('GalanoGrotesque-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesque';
+    src: url('GalanoGrotesque-Black.eot');
+    src: local('☞Galano Grotesque Black'), local('GalanoGrotesque-Black'),
+        url('GalanoGrotesque-Black.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-Black.woff2') format('woff2'),
+        url('GalanoGrotesque-Black.woff') format('woff'),
+        url('GalanoGrotesque-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAlt';
+    src: url('GalanoGrotesqueAlt-Thin.eot');
+    src: local('☞Galano Grotesque Alt Thin'), local('GalanoGrotesqueAlt-Thin'),
+        url('GalanoGrotesqueAlt-Thin.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAlt-Thin.woff2') format('woff2'),
+        url('GalanoGrotesqueAlt-Thin.woff') format('woff'),
+        url('GalanoGrotesqueAlt-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesque';
+    src: url('GalanoGrotesque-Italic.eot');
+    src: local('☞Galano Grotesque Italic'), local('GalanoGrotesque-Italic'),
+        url('GalanoGrotesque-Italic.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-Italic.woff2') format('woff2'),
+        url('GalanoGrotesque-Italic.woff') format('woff'),
+        url('GalanoGrotesque-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesqueAlt';
+    src: url('GalanoGrotesqueAlt-Italic.eot');
+    src: local('☞Galano Grotesque Alt Italic'), local('GalanoGrotesqueAlt-Italic'),
+        url('GalanoGrotesqueAlt-Italic.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesqueAlt-Italic.woff2') format('woff2'),
+        url('GalanoGrotesqueAlt-Italic.woff') format('woff'),
+        url('GalanoGrotesqueAlt-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesque';
+    src: url('GalanoGrotesque-ExtraLightItalic.eot');
+    src: local('☞Galano Grotesque ExtraLight Italic'), local('GalanoGrotesque-ExtraLightItalic'),
+        url('GalanoGrotesque-ExtraLightItalic.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-ExtraLightItalic.woff2') format('woff2'),
+        url('GalanoGrotesque-ExtraLightItalic.woff') format('woff'),
+        url('GalanoGrotesque-ExtraLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesque';
+    src: url('GalanoGrotesque-Light.eot');
+    src: local('☞Galano Grotesque Light'), local('GalanoGrotesque-Light'),
+        url('GalanoGrotesque-Light.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-Light.woff2') format('woff2'),
+        url('GalanoGrotesque-Light.woff') format('woff'),
+        url('GalanoGrotesque-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesque';
+    src: url('GalanoGrotesque-ExtraLight.eot');
+    src: local('☞Galano Grotesque ExtraLight'), local('GalanoGrotesque-ExtraLight'),
+        url('GalanoGrotesque-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-ExtraLight.woff2') format('woff2'),
+        url('GalanoGrotesque-ExtraLight.woff') format('woff'),
+        url('GalanoGrotesque-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GalanoGrotesque';
+    src: url('GalanoGrotesque-ExtraBold.eot');
+    src: local('☞Galano Grotesque ExtraBold'), local('GalanoGrotesque-ExtraBold'),
+        url('GalanoGrotesque-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-ExtraBold.woff2') format('woff2'),
+        url('GalanoGrotesque-ExtraBold.woff') format('woff'),
+        url('GalanoGrotesque-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
