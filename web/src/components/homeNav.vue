@@ -9,7 +9,7 @@
             <div class="float-left">
               <figure class="logo-box">
                 <router-link to="/">
-                  <img src="images/logo-2.png" alt title />
+                  <img src="@/assets/images/logo-2.png" alt title />
                 </router-link>
               </figure>
             </div>
@@ -62,7 +62,7 @@
             <!--Logo-->
             <div class="logo float-left">
               <a href="index.html" class="img-responsive">
-                <img src="images/small-logo.png" alt title />
+                <img src="@/assets/images/small-logo.png" alt title />
               </a>
             </div>
 
