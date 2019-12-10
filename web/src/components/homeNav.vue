@@ -95,3 +95,11 @@
     <div class="form-back-drop"></div>
   </div>
 </template>
+
+<script>
+import '@/assets/css/custom.css'
+import '@/assets/css/responsive.css'
+export default {
+  
+}
+</script>
