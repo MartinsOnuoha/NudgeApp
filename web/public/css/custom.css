@@ -2264,7 +2264,7 @@ figure{
   color: #fff;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
-  font-size: 60px;
+  font-size: 50px;
   line-height: 82px;
   margin-bottom: 3px;
 }
@@ -2272,7 +2272,7 @@ figure{
 .banner-style-two h1 span {
   font-family: 'Lobster Two', cursive;
   color: #FB7671;
-  font-size: 70px;
+  font-size: 60px;
 }
 
 .banner-style-two .content-box .text {
@@ -2291,8 +2291,8 @@ figure{
 
 .banner-style-two .image-one{
   position: absolute;
-  left: -160px;
-  top: 45px;
+  left: -60px;
+  top: 39px;
 }
 
 .banner-style-two .image-two{
@@ -2305,7 +2305,7 @@ figure{
 .banner-style-two .image-three{
   position: absolute;
   left: -150px;
-  bottom: 200px;
+  bottom: 160px;
 }
 
 

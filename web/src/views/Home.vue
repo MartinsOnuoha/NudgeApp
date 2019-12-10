@@ -10,16 +10,15 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-12 col-sm-12 image-column">
                         <div class="image-box clearfix">
-                            <figure class="image-one"><img src="/images/icons/icon-1.png" alt=""></figure>
-                            <figure class="image-two"><img src="/images/resource/banner-img-2.png" class="flot-bob-y" alt=""></figure>
-                            <figure class="image-three paroller"><img src="/images/resource/banner-img-3.png"></figure>
+                            <figure class="image-one"><img src="/images/icons/icon-1.png" width="" alt=""></figure>
+                            <figure class="image-two"><img src="/images/resource/banner-img-2.png" class="flot-bob-y" alt="" width="420px"></figure>
+                            <figure class="image-three paroller"><img src="/images/resource/banner-img-3.png" width="420px"></figure>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12 content-column">
                         <div class="content-box">
                             <h1>Improve your schooling and never miss a schedule<span>How?</span></h1>
                             <div class="text">We help in reminding, scheduling, and calling when late <br> catapulting you and your class ahead of the competition</div>
-                            <div class="btn-box"><router-link to="/login">Login</router-link></div>
                         </div>
                     </div>
                 </div>
