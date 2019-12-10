@@ -4,8 +4,6 @@ import 'package:nudge/auth/updateInfo.dart';
 import 'package:nudge/models/studentModel.dart';
 import 'package:nudge/utils/baseAuth.dart';
 import 'package:nudge/utils/margin.dart';
-import 'package:nudge/views/controller.dart';
-
 class SignupProvider extends ChangeNotifier {
   final TextEditingController nameTEC = new TextEditingController();
   final TextEditingController surnameTEC = new TextEditingController();

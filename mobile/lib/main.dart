@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:nudge/providers/controllerProvider.dart';
 import 'package:nudge/utils/theme.dart';
 import 'package:provider/provider.dart';
 
-import 'auth/login.dart';
+import 'views/controller.dart';
+import 'views/tabs/providers/calendarProvider.dart';
 import 'widgets/logo.dart';
 
 import 'providers/signupProvider.dart';
@@ -23,10 +25,13 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.blue,
             accentColor: blue,
             primaryColor: blue),
-        home: LoginPage(),
+        home: Controller(),
       ),
       providers: <SingleChildCloneableWidget>[
+        ChangeNotifierProvider(builder: (_) => ControllerProvider()),
+        ChangeNotifierProvider(builder: (_) => CalendarProvider()),
         ChangeNotifierProvider(builder: (_) => LoginProvider()),
+        ChangeNotifierProvider(builder: (_) => SignupProvider()),
         ChangeNotifierProvider(builder: (_) => SignupProvider()),
       ],
     );

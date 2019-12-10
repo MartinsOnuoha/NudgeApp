@@ -4,7 +4,6 @@ import 'package:nudge/models/studentModel.dart';
 import 'package:nudge/providers/signupProvider.dart';
 import 'package:nudge/utils/margin.dart';
 import 'package:nudge/utils/theme.dart';
-import 'package:nudge/widgets/logo.dart';
 import 'package:nudge/widgets/textFields.dart';
 import 'package:provider/provider.dart';
 
@@ -81,7 +80,7 @@ class _UpdateInfoState extends State<UpdateInfo> {
                           provider.submitData(context);
                         },
                         child: Text(
-                          'Signup',
+                          'Save My Data ',
                           style: TextStyle(
                               fontSize: 17, fontFamily: 'GalanoGrotesque2'),
                         ),
