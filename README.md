@@ -21,7 +21,7 @@ Keeping track of information in an average Nigerian University is hard, there's 
 
 <div align="center">
     <img width="500" src="https://github.com/MartinsOnuoha/naijahacks-nudge/blob/day1-intro/designs/nudge.jpeg">
-    <h1>Nudge 🤙🏼 ⏱</h1>
+    <h1>Nudge</h1>
     <p align="center">
         <p>Automated Realtime Class Tracking and Management System.</p>
     </p>
@@ -35,7 +35,7 @@ An Automated class management and time tracking system, to keep track of your sc
 
   - Having notes synched across devices from any device, so you don't have to worry when you miss a class.
   - For students, you can be notified of classes, assignment due dates, and also get that nudge you need to attend to them with an automated call.
-  - For teachers, tracking your class engagement just got easier, Nudge provides realtime analytics via student feedbacks, for you to know how you're doing with class, an opportunity for improvement (😉)
+  - For teachers, tracking your class engagement just got easier, Nudge provides realtime analytics via student feedbacks, for you to know how you're doing with class, an opportunity for improvement
 
 
 # Proposed Stack
