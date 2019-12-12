@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nudge/models/studentModel.dart';
-import 'package:nudge/providers/signupProvider.dart';
+import 'package:nudge/providers/updateInfoProvider.dart';
 import 'package:nudge/utils/margin.dart';
 import 'package:nudge/utils/theme.dart';
 import 'package:nudge/widgets/textFields.dart';
@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 
 class UpdateInfo extends StatefulWidget {
   final StudentModel studentModel;
+
   UpdateInfo({Key key, this.studentModel}) : super(key: key);
 
   @override
@@ -16,9 +17,21 @@ class UpdateInfo extends StatefulWidget {
 }
 
 class _UpdateInfoState extends State<UpdateInfo> {
+  UpdateInfoProvider provider;
+  @override
+  void initState() {
+    loadData();
+    super.initState();
+  }
+
+  loadData() async {
+    await Future.delayed(Duration(milliseconds: 600));
+    provider.loadSchools();
+  }
+
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<SignupProvider>(context);
+    provider = Provider.of<UpdateInfoProvider>(context);
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -29,7 +42,7 @@ class _UpdateInfoState extends State<UpdateInfo> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 28.0),
         child: Form(
-          key: provider.formKey2,
+          key: provider.formKey,
           child: ListView(
             physics: BouncingScrollPhysics(),
             children: <Widget>[
@@ -56,6 +69,15 @@ class _UpdateInfoState extends State<UpdateInfo> {
                   provider.showLevels(context);
                 },
               ),
+              GestureDetector(
+                child: School(
+                  provider,
+                  isEnabled: false,
+                ),
+                onTap: () {
+                  provider.showSchools(context);
+                },
+              ),
               provider.isLoading
                   ? Column(
                       children: <Widget>[
@@ -77,7 +99,8 @@ class _UpdateInfoState extends State<UpdateInfo> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
                         onPressed: () {
-                          provider.submitData(context);
+                          provider
+                              .submitSchoolData(context, provider);
                         },
                         child: Text(
                           'Save My Data ',

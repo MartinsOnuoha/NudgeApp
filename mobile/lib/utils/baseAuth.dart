@@ -69,7 +69,7 @@ class Auth implements BaseAuth {
 
   Future<StudentModel> getStudentProfileData(userID) async {
     var querySnapshot = await Firestore.instance
-        .collection("assistants")
+        .collection("student")
         .document('$userID')
         .get();
 
@@ -108,6 +108,7 @@ class Auth implements BaseAuth {
         'department': '$department',
         'faculty': faculty.toJson(),
         'is_online': false,
+        'is_admin': false,
       },
     );
     

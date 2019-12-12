@@ -1,7 +1,10 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:nudge/auth/updateDepartment.dart';
+import 'package:nudge/auth/updateInfo.dart';
 import 'package:nudge/utils/baseAuth.dart';
+import 'package:nudge/utils/fade_route.dart';
 import 'package:nudge/utils/persistence.dart';
 import 'package:nudge/views/controller.dart';
 
@@ -36,27 +39,46 @@ class LoginProvider extends ChangeNotifier {
         notifyListeners();
 
         var user = await auth.signIn(emailTEC.text, passwordTEC.text);
+        print(emailTEC.text);
 
         if (user != null) {
           emailTEC.text = '';
           passwordTEC.text = '';
 
-          var studentModel = await auth.getStudentProfileData(user.uid);
-          saveItem(
-              item: json.encode(studentModel.toJson()).toString(),
-              key: 'userModel');
-          isLoading = false;
+          if (user != null) {
+            var _studentModel = await auth.getStudentProfileData(user.uid);
+            notifyListeners();
+            saveItem(
+                item: json.encode(_studentModel.toJson()).toString(),
+                key: 'userModel');
+            if (_studentModel != null) {
+              if (_studentModel.school == null) {
+                Navigator.of(context).pushReplacement(
+                  FadeRoute(
+                    builder: (context) => UpdateInfo(
+                      studentModel: _studentModel,
+                    ),
+                  ),
+                );
+              } else if (_studentModel.classID == null) {
+                Navigator.of(context).pushReplacement(
+                  FadeRoute(
+                    builder: (context) => UpdateDepartment(),
+                  ),
+                );
+              } else {
+                Navigator.of(context).pushReplacement(
+                  FadeRoute(
+                    builder: (context) => Controller(
+                      studentModel: _studentModel,
+                    ),
+                  ),
+                );
+              }
+            }
 
-          if (studentModel != null) {
-            Navigator.pop(context);
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Controller(
-                  studentModel: studentModel,
-                ),
-              ),
-            );
+            _isLoading = false;
+            notifyListeners();
           }
         }
       }

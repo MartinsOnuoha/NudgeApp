@@ -67,7 +67,7 @@ class _SignupPageState extends State<SignupPage> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
                         onPressed: () {
-                          provider.submitData(context);
+                          provider.submitData(context, provider);
                         },
                         child: Text(
                           'Signup',

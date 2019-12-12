@@ -6,13 +6,16 @@ class StudentModel {
   String email;
   String department;
   String regNo;
-  String isOnline;
+  String school;
+  bool isAdmin;
+  bool isOnline;
   String imageUrl;
+  String classID;
   FacultyModel faculty;
   String year;
   final DocumentReference reference;
 
-  StudentModel({
+  StudentModel(
     this.firstName,
     this.email,
     this.faculty,
@@ -20,17 +23,23 @@ class StudentModel {
     this.lastName,
     this.imageUrl,
     this.regNo,
+    this.school,
+    this.isAdmin,
+    this.classID,
     this.year,
     this.reference,
-  });
+  );
 
   StudentModel.fromMap(Map<dynamic, dynamic> map, {this.reference})
       : firstName = map['first_name'],
         lastName = map['last_name'],
         email = map['email'],
+        school = map['school'],
         department = map['department'],
         imageUrl = map['imageUrl'],
         isOnline = map['is_online'],
+        isAdmin = map['is_admin'],
+        classID = map['class_id'],
         regNo = map['reg_no'],
         faculty = map['faculty'] != null
             ? FacultyModel.fromMap(map['faculty'])
@@ -43,6 +52,9 @@ class StudentModel {
         email = json['email'],
         department = json['department'],
         isOnline = json['is_online'],
+        isAdmin = json['is_admin'],
+        school = json['school'],
+        classID = json['class_id'],
         year = json['year'],
         faculty = json['faculty'] != null
             ? FacultyModel.fromMap(json['faculty'])
@@ -59,9 +71,11 @@ class StudentModel {
     data['imageUrl'] = this.imageUrl;
     data['department'] = this.department;
     data['is_online'] = this.isOnline;
+    data['is_admin'] = this.isAdmin;
     data['year'] = this.year;
+    data['class_id'] = this.classID;
+    data['school'] = this.school;
     data['reg_no'] = this.regNo;
-    data['faculty'] = this.faculty.toJson();
     return data;
   }
 

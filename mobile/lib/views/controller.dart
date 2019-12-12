@@ -5,7 +5,8 @@ import 'package:provider/provider.dart';
 
 class Controller extends StatefulWidget {
   final StudentModel studentModel;
-  Controller({Key key, /* @required  */this.studentModel}) : super(key: key);
+  Controller({Key key, @required this.studentModel})
+  /* : assert(studentModel != null) */;
 
   @override
   _ControllerState createState() => _ControllerState();
@@ -18,7 +19,8 @@ class _ControllerState extends State<Controller> {
     return Scaffold(
       body: Container(
           color: Colors.white,
-          child: provider.currentTab[provider.currentIndex]),
+          child:
+              provider.currentTab(widget.studentModel)[provider.currentIndex]),
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0,
         backgroundColor: Color(0xffF9F9FC),

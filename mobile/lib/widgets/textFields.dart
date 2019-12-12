@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nudge/providers/signupProvider.dart';
+import 'package:nudge/utils/theme.dart';
 import 'package:nudge/utils/validator.dart';
 
 class Name extends StatelessWidget {
@@ -411,7 +412,7 @@ class RegNo extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 16.0),
           child: TextFormField(
             validator: (value) {
-              if (value!= null) {
+              if (value != null) {
                 return null;
               } else if (value.isEmpty) {
                 return "This field can't be left empty";
@@ -419,7 +420,7 @@ class RegNo extends StatelessWidget {
                 return "Reg no is Invalid";
               }
             },
-           // controller: controller?.passwordTEC,
+            controller: controller?.regNoTEC,
             enabled: isEnabled,
             style: TextStyle(
                 fontSize: 26,
@@ -459,6 +460,7 @@ class RegNo extends StatelessWidget {
     );
   }
 }
+
 class Level extends StatelessWidget {
   final text;
   final VoidCallback onTap;
@@ -471,7 +473,6 @@ class Level extends StatelessWidget {
     this.onTap,
     this.isDarkTheme = false,
     this.isEnabled = true,
-
   }) : super(key: key);
 
   @override
@@ -491,7 +492,7 @@ class Level extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 16.0),
             child: TextFormField(
               validator: (value) {
-                if (value!= null) {
+                if (value != null) {
                   return null;
                 } else if (value.isEmpty) {
                   return "This field can't be left empty";
@@ -534,6 +535,208 @@ class Level extends StatelessWidget {
                   labelText: 'Current Level'),
               keyboardType: TextInputType.text,
             ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class School extends StatelessWidget {
+  final text;
+  final VoidCallback onTap;
+  final controller;
+  final bool isDarkTheme, isEnabled;
+  const School(
+    this.controller, {
+    Key key,
+    this.text,
+    this.onTap,
+    this.isDarkTheme = false,
+    this.isEnabled = true,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.8,
+        margin: EdgeInsets.symmetric(horizontal: 20),
+        child: Theme(
+          data: ThemeData(
+              primaryColor: isDarkTheme ? Colors.white : Colors.black,
+              accentColor: isDarkTheme ? Colors.white : Colors.black,
+              hintColor: isDarkTheme ? Colors.white : Colors.black,
+              fontFamily: 'GalanoGrotesque2'),
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 16.0),
+            child: TextFormField(
+              controller: controller?.schoolTEC,
+              enabled: isEnabled,
+              style: TextStyle(
+                  fontSize: 19,
+                  color: isDarkTheme ? Colors.white : Colors.black,
+                  fontWeight: FontWeight.w200),
+              decoration: InputDecoration(
+                  isDense: false,
+                  border: new UnderlineInputBorder(
+                      borderSide: new BorderSide(color: Colors.white)),
+                  labelStyle: TextStyle(
+                      fontSize: 15,
+                      fontFamily: 'GalanoGrotesque',
+                      color: isDarkTheme ? Colors.white : Colors.black),
+                  errorStyle: TextStyle(
+                      fontSize: 14,
+                      color: isDarkTheme ? Colors.white : Colors.red),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                        color: isDarkTheme ? Colors.white : Colors.grey[500],
+                        width: 1.4),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                        color: isDarkTheme ? Colors.white60 : Colors.grey[300],
+                        width: 1.4),
+                  ),
+                  errorBorder: UnderlineInputBorder(
+                    borderRadius: BorderRadius.circular(2),
+                    borderSide: BorderSide(color: Colors.red, width: 1.4),
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(vertical: 15),
+                  labelText: 'University'),
+              keyboardType: TextInputType.text,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class DepartmentName extends StatelessWidget {
+  final text;
+  final VoidCallback onTap;
+  final controller;
+  final bool isDarkTheme, isEnabled;
+  const DepartmentName(
+    this.controller, {
+    Key key,
+    this.text,
+    this.onTap,
+    this.isDarkTheme = false,
+    this.isEnabled = true,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.8,
+        margin: EdgeInsets.symmetric(horizontal: 20),
+        child: Theme(
+          data: ThemeData(
+              primaryColor: isDarkTheme ? Colors.white : Colors.black,
+              accentColor: isDarkTheme ? Colors.white : Colors.black,
+              hintColor: isDarkTheme ? Colors.white : Colors.black,
+              fontFamily: 'GalanoGrotesque2'),
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 16.0),
+            child: TextFormField(
+              controller: controller?.deptTEC,
+              enabled: isEnabled,
+              style: TextStyle(
+                  fontSize: 19,
+                  color: isDarkTheme ? Colors.white : Colors.black,
+                  fontWeight: FontWeight.w200),
+              decoration: InputDecoration(
+                  isDense: false,
+                  border: new UnderlineInputBorder(
+                      borderSide: new BorderSide(color: Colors.white)),
+                  labelStyle: TextStyle(
+                      fontSize: 15,
+                      fontFamily: 'GalanoGrotesque',
+                      color: isDarkTheme ? Colors.white : Colors.black),
+                  errorStyle: TextStyle(
+                      fontSize: 14,
+                      color: isDarkTheme ? Colors.white : Colors.red),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                        color: isDarkTheme ? Colors.white : Colors.grey[500],
+                        width: 1.4),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                        color: isDarkTheme ? Colors.white60 : Colors.grey[300],
+                        width: 1.4),
+                  ),
+                  errorBorder: UnderlineInputBorder(
+                    borderRadius: BorderRadius.circular(2),
+                    borderSide: BorderSide(color: Colors.red, width: 1.4),
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(vertical: 15),
+                  labelText: 'Department Name'),
+              keyboardType: TextInputType.text,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class DepartmentSearch extends StatelessWidget {
+  final text;
+  final VoidCallback onTap;
+  final controller;
+  final bool isDarkTheme, isEnabled;
+  const DepartmentSearch(
+    this.controller, {
+    Key key,
+    this.text,
+    this.onTap,
+    this.isDarkTheme = false,
+    this.isEnabled = true,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.8,
+        margin: EdgeInsets.symmetric(horizontal: 20)
+            .add(EdgeInsets.only(bottom: 20)),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: blue.withOpacity(0.4),
+        ),
+        child: Theme(
+          data: ThemeData(
+              primaryColor: white,
+              accentColor: white,
+              hintColor: white,
+              fontFamily: 'GalanoGrotesque2'),
+          child: TextField(
+            controller: controller?.searchTEC,
+            enabled: isEnabled,
+            onChanged: (val) {
+              if (val.isNotEmpty)
+                controller.isSearching = true;
+              else
+                controller.isSearching = false;
+            },
+            style: TextStyle(
+                fontSize: 19, color: Colors.white, fontWeight: FontWeight.w200),
+            decoration: InputDecoration(
+                isDense: false,
+                border: InputBorder.none,
+                hintStyle: TextStyle(
+                    fontSize: 15, fontFamily: 'GalanoGrotesque', color: white),
+                contentPadding: const EdgeInsets.all(15),
+                hintText: 'Search...'),
+            keyboardType: TextInputType.text,
           ),
         ),
       ),
