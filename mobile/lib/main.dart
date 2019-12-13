@@ -1,7 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:nudge/auth/updateInfo.dart';
+import 'package:nudge/models/studentModel.dart';
 import 'package:nudge/providers/controllerProvider.dart';
 import 'package:nudge/utils/baseAuth.dart';
+import 'package:nudge/utils/persistence.dart';
 import 'package:nudge/utils/theme.dart';
 import 'package:provider/provider.dart';
 
@@ -13,6 +17,8 @@ import 'providers/updateInfoProvider.dart';
 import 'utils/fade_route.dart';
 import 'views/controller.dart';
 import 'views/tabs/providers/calendarProvider.dart';
+import 'views/tabs/providers/homeProvider.dart';
+import 'views/tabs/providers/notesProvider.dart';
 import 'widgets/logo.dart';
 
 import 'providers/signupProvider.dart';
@@ -33,7 +39,7 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.blue,
             accentColor: blue,
             primaryColor: blue),
-        home: Splash(),
+        home: LoginPage(),
       ),
       providers: <SingleChildCloneableWidget>[
         ChangeNotifierProvider(builder: (_) => ControllerProvider()),
@@ -43,6 +49,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(builder: (_) => UpdateInfoProvider()),
         ChangeNotifierProvider(builder: (_) => UpdateDeptProvider()),
         ChangeNotifierProvider(builder: (_) => CreateClassProvider()),
+        ChangeNotifierProvider(builder: (_) => HomeProvider()),
+        ChangeNotifierProvider(builder: (_) => NotesProvider()),
       ],
     );
   }
@@ -65,52 +73,26 @@ class _SplashState extends State<Splash> {
   }
 
   loadData() async {
-    try {
-      await Future.delayed(Duration(seconds: 4));
-      var user = await auth.getCurrentUser();
-      if (user != null) {
-        var _studentModel = await auth.getStudentProfileData(user.uid);
-        if (_studentModel != null) {
-          if (_studentModel.school == null) {
-            Navigator.of(context).pushReplacement(
-              FadeRoute(
-                builder: (context) => UpdateInfo(
-                  studentModel: _studentModel,
-                ),
-              ),
-            );
-          } else if (_studentModel.classID == null) {
-            Navigator.of(context).pushReplacement(
-              FadeRoute(
-                builder: (context) => UpdateDepartment(),
-              ),
-            );
-          } else {
-            Navigator.of(context).pushReplacement(
-              FadeRoute(
-                builder: (context) => Controller(
-                  studentModel: _studentModel,
-                ),
-              ),
-            );
-          }
-        }
-      } else {
-        throw 'Logged Out';
-      }
-    } catch (e) {
-      print(e.toString());
-      Navigator.of(context).pushReplacement(
-        FadeRoute(
-          builder: (context) => LoginPage(),
-        ),
-      );
-    }
+    await Future.delayed(Duration(seconds: 3));
+
+    Navigator.of(context).pushReplacement(
+      FadeRoute(
+        builder: (context) => LoginPage(),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+        child: AppBar(
+          backgroundColor: white,
+          elevation: 0,
+          brightness: Brightness.light,
+        ),
+        preferredSize: Size.fromHeight(0),
+      ),
       body: Logo(),
     );
   }

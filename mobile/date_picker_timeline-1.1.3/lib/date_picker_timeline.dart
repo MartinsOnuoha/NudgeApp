@@ -16,6 +16,7 @@ class DatePickerTimeline extends StatefulWidget {
   DateTime currentDate;
   DateChangeListener onDateChange;
   int daysCount;
+  var provider;
   String locale;
 
   // Creates the DatePickerTimeline Widget
@@ -30,6 +31,7 @@ class DatePickerTimeline extends StatefulWidget {
     this.selectionColor = AppColors.defaultSelectionColor,
     this.daysCount = 50000,
     this.onDateChange,
+    this.provider,
     this.locale = "en_US",
   }) : super(key: key);
 
@@ -60,7 +62,7 @@ class _DatePickerState extends State<DatePickerTimeline> {
           DateTime date = new DateTime(_date.year, _date.month, _date.day);
           bool isSelected = compareDate(date, widget.currentDate);
 
-          return DateWidget(
+          return  DateWidget(
             date: date,
             monthTextStyle:
                 isSelected ? selectedMonthTextStyle : widget.monthTextStyle,
@@ -72,13 +74,17 @@ class _DatePickerState extends State<DatePickerTimeline> {
             selectionColor:
                 isSelected ? widget.selectionColor : Colors.transparent,
             onDateSelected: (selectedDate) {
-              // A date is selected
-              if (widget.onDateChange != null) {
-                widget.onDateChange(selectedDate);
-              }
-              setState(() {
+               widget.provider.valueUpdate(selectedDate);
+              
+               setState(() {
                 widget.currentDate = selectedDate;
               });
+              
+
+              if (widget.onDateChange != null) {
+               // widget.onDateChange(selectedDate);
+              }
+             
             },
           );
         },

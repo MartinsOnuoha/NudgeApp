@@ -13,6 +13,7 @@ class StudentModel {
   String classID;
   FacultyModel faculty;
   String year;
+  String studentID;
   final DocumentReference reference;
 
   StudentModel(
@@ -28,6 +29,7 @@ class StudentModel {
     this.classID,
     this.year,
     this.reference,
+    this.studentID,
   );
 
   StudentModel.fromMap(Map<dynamic, dynamic> map, {this.reference})
@@ -76,6 +78,25 @@ class StudentModel {
     data['class_id'] = this.classID;
     data['school'] = this.school;
     data['reg_no'] = this.regNo;
+    data['studentID'] = this.reference.documentID;
+    return data;
+  }
+
+  Map<String, dynamic> toMap() {
+    final Map<dynamic, dynamic> data = new Map<String, dynamic>();
+
+    data['first_name'] = this.firstName;
+    data['last_name'] = this.lastName;
+    data['email'] = this.email;
+    data['imageUrl'] = this.imageUrl;
+    data['department'] = this.department;
+    data['is_online'] = this.isOnline;
+    data['is_admin'] = this.isAdmin;
+    data['year'] = this.year;
+    data['class_id'] = this.classID;
+    data['school'] = this.school;
+    data['reg_no'] = this.regNo;
+    data['reference'] = this.reference;
     return data;
   }
 

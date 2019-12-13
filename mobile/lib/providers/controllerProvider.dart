@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:nudge/models/studentModel.dart';
 import 'package:nudge/views/tabs/calendar.dart';
 import 'package:nudge/views/tabs/home.dart';
+import 'package:nudge/views/tabs/notes.dart';
 
 class ControllerProvider extends ChangeNotifier {
   currentTab(val) => [
         Home(studentModel: val),
         Home(studentModel: val),
-        Calendar(),
-        Home(studentModel: val),
+        Calendar(studentModel: val),
+        Notes(studentModel: val),
         Home(studentModel: val),
       ];
 

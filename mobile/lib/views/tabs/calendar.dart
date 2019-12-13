@@ -1,19 +1,44 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:nudge/models/classModel.dart';
+import 'package:nudge/models/studentModel.dart';
+import 'package:nudge/models/teacherModel.dart';
 import 'package:nudge/utils/margin.dart';
 import 'package:nudge/utils/theme.dart';
+import 'package:nudge/views/tabs/providers/calendarProvider.dart';
+import 'package:provider/provider.dart';
+
+var day = DateFormat("E").format(DateTime.now()).toUpperCase();
 
 class Calendar extends StatefulWidget {
-  Calendar({Key key}) : super(key: key);
+  final StudentModel studentModel;
+  Calendar({Key key, this.studentModel}) : super(key: key);
 
   @override
   _CalendarState createState() => _CalendarState();
 }
 
 class _CalendarState extends State<Calendar> {
+
+   CalendarProvider provider;
+  @override
+  void initState() {
+    loadData();
+    super.initState();
+  }
+
+  loadData() async {
+    await Future.delayed(Duration(milliseconds: 600));
+    provider.persistData(context);
+  }
+
+
   @override
   Widget build(BuildContext context) {
+     provider = Provider.of<CalendarProvider>(context);
+    provider.studentModel = widget.studentModel;
     return Container(
       color: Color(0xFFF7F7F7),
       child: Stack(
@@ -84,19 +109,14 @@ class _CalendarState extends State<Calendar> {
               Padding(
                 padding: const EdgeInsets.all(18.0),
                 child: DatePickerTimeline(
-                  DateTime.now(),
+                  provider.currentDate,
                   selectionColor: blue,
-                  onDateChange: (date) {
-                    // print(date.day.toString());
-                  },
+                  provider: provider,
                 ),
               ),
               Expanded(
-                child: ListView.builder(
-                  itemCount: 3,
-                  itemBuilder: (BuildContext context, int index) {
-                    return new CalendarItem();
-                  },
+                child: ListView(
+                  children: <Widget>[BuildUI(context, provider: provider)],
                 ),
               )
             ],
@@ -107,13 +127,111 @@ class _CalendarState extends State<Calendar> {
   }
 }
 
-class CalendarItem extends StatelessWidget {
-  const CalendarItem({
+class BuildUI extends StatelessWidget {
+  final CalendarProvider provider;
+  final homeContext;
+
+  const BuildUI(this.homeContext, {Key key, this.provider}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<QuerySnapshot>(
+      stream: provider.classList(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) return EmptyUI();
+        return BuildFeedList(snapshot.data.documents, provider, homeContext);
+      },
+    );
+  }
+}
+
+class BuildFeedList extends StatelessWidget {
+  final List<DocumentSnapshot> snapshot;
+  final CalendarProvider provider;
+  final homeContext;
+  const BuildFeedList(this.snapshot, this.provider, this.homeContext);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        if (snapshot.length > 0)
+          for (DocumentSnapshot data in snapshot)
+            if (provider.day == data['day']) CalendarItem(data)
+      ],
+    );
+  }
+}
+
+class EmptyUI extends StatelessWidget {
+  const EmptyUI({
     Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        children: <Widget>[
+          Opacity(
+            opacity: 0.2,
+            child: Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(90),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                          'https://media.istockphoto.com/vectors/open-box-icon-vector-id635771440?k=6&m=635771440&s=612x612&w=0&h=IESJM8lpvGjMO_crsjqErVWzdI8sLnlf0dljbkeO7Ig=',
+                          scale: 3))),
+            ),
+          ),
+          const YMargin(10),
+          Text(
+            'You Don\'t have any class today...',
+            style: TextStyle(fontSize: 13),
+          ),
+          const YMargin(20),
+        ],
+      ),
+    );
+  }
+}
+
+class CalendarItem extends StatefulWidget {
+  final data;
+  CalendarItem(this.data);
+
+  @override
+  _CalendarItemState createState() => _CalendarItemState();
+}
+
+class _CalendarItemState extends State<CalendarItem> {
+  TeacherModel teacher;
+
+  fetchTeacher(id) async {
+    var querySnapshot =
+        await Firestore.instance.collection("teachers").document('$id').get();
+
+    setState(() {
+      teacher = (querySnapshot.data != null)
+          ? TeacherModel.fromSnapshot(querySnapshot)
+          : null;
+    });
+  }
+
+  @override
+  void initState() {
+    var classModel = ClassModel.fromSnapshot(widget.data);
+    fetchTeacher(classModel.teacher);
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var classModel = ClassModel.fromSnapshot(widget.data);
     return Container(
       margin: EdgeInsets.only(bottom: 20),
       child: Column(
@@ -133,7 +251,7 @@ class CalendarItem extends StatelessWidget {
               ),
               const XMargin(10),
               Text(
-                '07:00',
+                DateFormat?.Hm()?.format(classModel?.startTime?.toDate()),
                 style: TextStyle(
                     color: text,
                     fontFamily: 'GalanoGrotesque2',
@@ -142,13 +260,18 @@ class CalendarItem extends StatelessWidget {
               ),
               const XMargin(5),
               Text(
-                'AM',
+                DateFormat?.jm()
+                        ?.format(classModel?.startTime?.toDate())
+                        ?.split(' ')[1] ??
+                    '',
                 style: TextStyle(
                     color: text, fontWeight: FontWeight.w100, fontSize: 16),
               ),
               Spacer(),
               Text(
-                '1 h 45 min',
+                _printDuration(classModel.endTime
+                    .toDate()
+                    .difference(classModel.startTime.toDate())),
                 style: TextStyle(
                     color: lightText,
                     fontWeight: FontWeight.w200,
@@ -171,7 +294,8 @@ class CalendarItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  'Mathematic',
+                  classModel?.name ?? '',
+                  maxLines: 2,
                   style: TextStyle(
                       color: text,
                       fontFamily: 'GalanoGrotesque2',
@@ -179,7 +303,7 @@ class CalendarItem extends StatelessWidget {
                       fontSize: 17),
                 ),
                 Text(
-                  'Advanced Mathematic III : Vectors & Surds',
+                  classModel.desc ?? '',
                   style: TextStyle(color: lightText, fontSize: 13),
                 ),
                 const YMargin(18),
@@ -199,7 +323,7 @@ class CalendarItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'Adeeze Biola',
+                          teacher?.name ?? '',
                           style: TextStyle(
                               color: text,
                               fontFamily: 'GalanoGrotesque2',
@@ -207,7 +331,7 @@ class CalendarItem extends StatelessWidget {
                               fontSize: 17),
                         ),
                         Text(
-                          '234 000 0000 000',
+                          teacher?.phone ?? '',
                           style: TextStyle(color: lightText, fontSize: 13),
                         ),
                       ],
@@ -231,16 +355,12 @@ class CalendarItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'Faculty of Mathematics Building',
+                          classModel?.location ?? '',
                           style: TextStyle(
                               color: text,
                               fontFamily: 'GalanoGrotesque2',
                               fontWeight: FontWeight.w500,
                               fontSize: 17),
-                        ),
-                        Text(
-                          'Room 412, 2nd floor',
-                          style: TextStyle(color: lightText, fontSize: 13),
                         ),
                       ],
                     )
@@ -253,4 +373,15 @@ class CalendarItem extends StatelessWidget {
       ),
     );
   }
+}
+
+String _printDuration(Duration duration) {
+  String twoDigits(int n) {
+    if (n >= 10) return "$n";
+    return "0$n" == '00' ? '' : '$n';
+  }
+
+  String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
+  //String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
+  return "${twoDigits(duration.inHours) != '' ? twoDigits(duration.inHours) + ' h' : ''}${twoDigitMinutes != '' ? twoDigitMinutes + ' m' : ''}";
 }

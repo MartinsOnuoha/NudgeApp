@@ -1,8 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:nudge/models/classModel.dart';
 import 'package:nudge/models/studentModel.dart';
+import 'package:nudge/utils/fade_route.dart';
 import 'package:nudge/utils/margin.dart';
 import 'package:nudge/utils/theme.dart';
+import 'package:nudge/views/tabs/providers/homeProvider.dart';
+import 'package:nudge/widgets/dialog.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   final StudentModel studentModel;
@@ -15,6 +21,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<HomeProvider>(context);
+    provider.studentModel = widget.studentModel;
     return Container(
       color: Color(0xffE5F0FF),
       child: Stack(
@@ -117,7 +125,7 @@ class _HomeState extends State<Home> {
                           ),
                           const XMargin(5),
                           Text(
-                            '(3)',
+                            '(${provider.classLength})',
                             style: TextStyle(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.w200,
@@ -127,13 +135,19 @@ class _HomeState extends State<Home> {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(5),
                             child: Material(
+                              color: white,
                               child: Padding(
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 4.0),
                                 child: InkResponse(
-                                  onTap: () {},
+                                  onTap: () {
+                                    provider.isClassExpanded =
+                                        !provider.isClassExpanded;
+                                  },
                                   child: Text(
-                                    'See all',
+                                    provider.isClassExpanded
+                                        ? 'Hide'
+                                        : 'See all',
                                     style: TextStyle(
                                         color: blue,
                                         fontFamily: 'GalanoGrotesque2',
@@ -148,7 +162,41 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     const YMargin(10),
-                    for (var i = 0; i < 3; i++) new ClassWidget(),
+                    BuildUI(
+                      context,
+                      provider: provider,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        widget.studentModel.isAdmin
+                            ? ClipRRect(
+                                borderRadius: BorderRadius.circular(5),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20.0),
+                                  child: FlatButton(
+                                    onPressed: () {
+                                      Navigator.of(context).push(
+                                        FadeRoute(
+                                          builder: (context) => AddClass(),
+                                        ),
+                                      );
+                                    },
+                                    child: Text(
+                                      '+ Add Class',
+                                      style: TextStyle(
+                                          color: blue,
+                                          fontFamily: 'GalanoGrotesque2',
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w300),
+                                    ),
+                                  ),
+                                ),
+                              )
+                            : Container(),
+                      ],
+                    ),
                     const YMargin(20),
                     Padding(
                       padding:
@@ -175,6 +223,7 @@ class _HomeState extends State<Home> {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(5),
                             child: Material(
+                              color: white,
                               child: Padding(
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 4.0),
@@ -272,15 +321,96 @@ class _HomeState extends State<Home> {
   }
 }
 
-class ClassWidget extends StatelessWidget {
-  const ClassWidget({
+class BuildUI extends StatelessWidget {
+  final HomeProvider provider;
+  final homeContext;
+
+  const BuildUI(this.homeContext, {Key key, this.provider}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<QuerySnapshot>(
+      stream: provider.classList(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) return EmptyUI();
+        return BuildFeedList(snapshot.data.documents, provider, homeContext);
+      },
+    );
+  }
+}
+
+class BuildFeedList extends StatelessWidget {
+  final List<DocumentSnapshot> snapshot;
+  final HomeProvider provider;
+  final homeContext;
+  const BuildFeedList(this.snapshot, this.provider, this.homeContext);
+
+  @override
+  Widget build(BuildContext context) {
+    provider.classLength = provider.classLength < snapshot.length
+        ? snapshot.length
+        : provider.classLength;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          if (snapshot.length > 0)
+            for (DocumentSnapshot data in snapshot) ClassWidget(data: data)
+        ],
+      ),
+    );
+  }
+}
+
+class EmptyUI extends StatelessWidget {
+  const EmptyUI({
     Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        children: <Widget>[
+          Opacity(
+            opacity: 0.2,
+            child: Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(90),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                          'https://media.istockphoto.com/vectors/open-box-icon-vector-id635771440?k=6&m=635771440&s=612x612&w=0&h=IESJM8lpvGjMO_crsjqErVWzdI8sLnlf0dljbkeO7Ig=',
+                          scale: 3))),
+            ),
+          ),
+          const YMargin(10),
+          Text(
+            'You Don\'t have any class today...',
+            style: TextStyle(fontSize: 13),
+          ),
+          const YMargin(20),
+        ],
+      ),
+    );
+  }
+}
+
+class ClassWidget extends StatelessWidget {
+  final data;
+  const ClassWidget({
+    Key key,
+    this.data,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var classModel = ClassModel.fromSnapshot(data);
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 9),
+      margin: EdgeInsets.symmetric(vertical: 9),
       decoration: BoxDecoration(
           color: Color(0xffF4F4F4).withOpacity(0.7),
           borderRadius: BorderRadius.circular(20)),
@@ -294,7 +424,8 @@ class ClassWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    '09:30',
+                    DateFormat?.Hm()?.format(classModel?.startTime?.toDate()) ??
+                        '',
                     style: TextStyle(
                         color: black,
                         fontFamily: 'GalanoGrotesque2',
@@ -303,7 +434,9 @@ class ClassWidget extends StatelessWidget {
                   ),
                   const YMargin(5),
                   Text(
-                    'AM',
+                    DateFormat?.jm()
+                        ?.format(classModel?.startTime?.toDate())
+                        ?.split(' ')[1],
                     style: TextStyle(
                         color: lightText,
                         fontWeight: FontWeight.w200,
@@ -319,7 +452,7 @@ class ClassWidget extends StatelessWidget {
               color: Color(0xffE5E5E5),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 9, left: 20),
+              padding: const EdgeInsets.only(top: 9, left: 15),
               child: Container(
                 width: screenWidth(context, percent: 0.6),
                 child: Column(
@@ -327,7 +460,7 @@ class ClassWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'Advanced Mathematic III : Vectors & Surds',
+                      classModel?.name ?? '',
                       style: TextStyle(
                           color: Color(0xff4E4E4E),
                           fontFamily: 'GalanoGrotesque2',
@@ -335,29 +468,34 @@ class ClassWidget extends StatelessWidget {
                           fontSize: 14),
                     ),
                     const YMargin(5),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Icon(
-                          Icons.location_on,
-                          color: lightText,
-                        ),
-                        const XMargin(5),
-                        Container(
-                          width: screenWidth(context, percent: 0.5),
-                          child: Column(
-                            children: <Widget>[
-                              Text(
-                                'Room 412, Faculty of Mathematics',
-                                style: TextStyle(
-                                    color: lightText,
-                                    fontWeight: FontWeight.w200,
-                                    fontSize: 14),
-                              ),
-                            ],
+                    Container(
+                      width: screenWidth(context, percent: 0.6),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Icon(
+                            Icons.location_on,
+                            color: lightText,
                           ),
-                        ),
-                      ],
+                          const XMargin(5),
+                          Container(
+                            width: screenWidth(context, percent: 0.5),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  classModel?.location ?? '',
+                                  style: TextStyle(
+                                      color: lightText,
+                                      fontWeight: FontWeight.w200,
+                                      fontSize: 14),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
