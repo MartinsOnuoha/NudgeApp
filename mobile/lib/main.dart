@@ -139,7 +139,7 @@ class _SplashState extends State<Splash> {
               context,
               message:
                   'Hello, you have ${classModel.name} in ${compareTime.inMinutes} Minutes)}',
-              phone: '2348113823269',
+              phone: '${studentModel.phone}',
             );
         }
       } catch (e) {}
