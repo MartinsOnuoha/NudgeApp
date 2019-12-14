@@ -61,7 +61,7 @@ class ChatMessageListItem extends StatelessWidget {
                         Text(
                             messageSnapshot.value['senderName'],
                             style: TextStyle(
-                              color: isMe? Colors.grey[900] : white,
+                              color:  Colors.grey[900],
                               fontWeight: FontWeight.bold,
                               fontSize: 14,
                             ),

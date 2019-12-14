@@ -18,6 +18,7 @@ import 'providers/updateDeptProvider.dart';
 import 'providers/updateInfoProvider.dart';
 import 'utils/fade_route.dart';
 import 'views/controller.dart';
+import 'views/rewards.dart';
 import 'views/tabs/providers/calendarProvider.dart';
 import 'views/tabs/providers/homeProvider.dart';
 import 'views/tabs/providers/notesProvider.dart';
@@ -65,7 +66,7 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.blue,
             accentColor: blue,
             primaryColor: blue),
-        home: Splash(),
+        home: RewardsPage(),
       ),
       providers: <SingleChildCloneableWidget>[
         ChangeNotifierProvider(builder: (_) => ControllerProvider()),

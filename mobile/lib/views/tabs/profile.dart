@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nudge/models/studentModel.dart';
+import 'package:nudge/utils/fade_route.dart';
 import 'package:nudge/utils/margin.dart';
 import 'package:nudge/utils/theme.dart';
+import 'package:nudge/views/rewards.dart';
 import 'package:nudge/widgets/logo.dart';
 import 'package:nudge/widgets/textFields.dart';
 import 'package:provider/provider.dart';
@@ -97,6 +99,28 @@ class _ProfileState extends State<Profile> {
                         ),
                       ),
                     ),
+              Container(
+                height: 55,
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                child: FlatButton(
+                  color: white,
+                  textColor: blue,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      FadeRoute(
+                        builder: (context) => RewardsPage(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    'Rewards',
+                    style:
+                        TextStyle(fontSize: 17, fontFamily: 'GalanoGrotesque2'),
+                  ),
+                ),
+              )
             ],
           ),
         ),
