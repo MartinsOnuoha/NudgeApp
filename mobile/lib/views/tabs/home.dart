@@ -320,7 +320,7 @@ class BuildUI extends StatelessWidget {
     return StreamBuilder<QuerySnapshot>(
       stream: provider.classList(),
       builder: (context, snapshot) {
-        if (!snapshot.hasData || snapshot.data.documents.length <=0 ) return EmptyAss();
+        if (!snapshot.hasData || snapshot.data.documents.length <=0 ) return EmptyUI();
         return BuildFeedList(snapshot.data.documents, provider, homeContext);
       },
     );
@@ -362,7 +362,7 @@ class BuildAsst extends StatelessWidget {
     return StreamBuilder<QuerySnapshot>(
       stream: provider.assignmentList(),
       builder: (context, snapshot) {
-        if (!snapshot.hasData || snapshot.data.documents.length <=0 ) return EmptyUI();
+        if (!snapshot.hasData || snapshot.data.documents.length <=0 ) return EmptyAss();
         return BuildFeedBuildAsstList(
             snapshot.data.documents, provider, homeContext);
       },

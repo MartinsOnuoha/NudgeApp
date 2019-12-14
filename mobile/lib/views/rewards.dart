@@ -33,6 +33,12 @@ class _RewardsPageState extends State<RewardsPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        brightness: Brightness.light,
+        iconTheme: IconThemeData(color: Colors.grey),
+        backgroundColor: Color(0xffFFDCA8),
+      ),
       backgroundColor: Color(0xffFFDCA8),
       body: AnimatedBuilder(
           animation: _controller,
@@ -42,13 +48,13 @@ class _RewardsPageState extends State<RewardsPage>
                 child: Column(
                   children: <Widget>[
                     Container(
-                      height: screenWidth(context, percent: 0.21),
-                      width: screenWidth(context, percent: 0.21),
+                      height: screenWidth(context, percent: 0.38),
+                      width: screenWidth(context, percent: 0.38),
                       decoration: BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage('assets/images/rewards.png'))),
                     ),
-                    const YMargin(30),
+                    const Spacer(),
                     Text(
                       'Congratulations',
                       style: TextStyle(

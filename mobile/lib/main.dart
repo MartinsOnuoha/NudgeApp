@@ -103,9 +103,7 @@ class _SplashState extends State<Splash> {
     super.initState();
   }
 
-  bool _enabled = true;
   int _status = 0;
-  List<DateTime> _events = [];
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
@@ -173,33 +171,9 @@ class _SplashState extends State<Splash> {
     if (!mounted) return;
   }
 
-  void _onClickEnable(enabled) {
-    setState(() {
-      _enabled = enabled;
-    });
-    if (enabled) {
-      BackgroundFetch.start().then((int status) {
-        print('[BackgroundFetch] start success: $status');
-      }).catchError((e) {
-        print('[BackgroundFetch] start FAILURE: $e');
-      });
-    } else {
-      BackgroundFetch.stop().then((int status) {
-        print('[BackgroundFetch] stop success: $status');
-      });
-    }
-  }
-
-  void _onClickStatus() async {
-    int status = await BackgroundFetch.status;
-    print('[BackgroundFetch] status: $status');
-    setState(() {
-      _status = status;
-    });
-  }
-
   loadData() async {
     try {
+      
       await Future.delayed(Duration(seconds: 4));
       var user = await auth.getCurrentUser();
       if (user != null) {
