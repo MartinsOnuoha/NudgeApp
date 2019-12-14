@@ -66,7 +66,7 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.blue,
             accentColor: blue,
             primaryColor: blue),
-        home: RewardsPage(),
+        home: Splash(),
       ),
       providers: <SingleChildCloneableWidget>[
         ChangeNotifierProvider(builder: (_) => ControllerProvider()),
