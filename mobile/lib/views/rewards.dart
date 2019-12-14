@@ -42,8 +42,8 @@ class _RewardsPageState extends State<RewardsPage>
                 child: Column(
                   children: <Widget>[
                     Container(
-                      height: 190,
-                      width: 190,
+                      height: screenWidth(context, percent: 0.21),
+                      width: screenWidth(context, percent: 0.21),
                       decoration: BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage('assets/images/rewards.png'))),

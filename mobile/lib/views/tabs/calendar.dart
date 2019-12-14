@@ -281,7 +281,7 @@ class _CalendarItemState extends State<CalendarItem> {
             ],
           ),
           Container(
-            height: screenHeight(context, percent: 0.27),
+            //height: screenHeight(context, percent: 0.27),
             width: double.infinity,
             margin: EdgeInsets.all(10).add(EdgeInsets.only(left: 20, right: 8)),
             padding: EdgeInsets.all(20),

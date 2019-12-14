@@ -69,6 +69,7 @@ class UpdateDeptProvider extends ChangeNotifier {
             ],
             message: Text(
               'Continue with ${dept.name} as your deparment',
+              
               style: TextStyle(
                   fontSize: 16,
                   color: black,

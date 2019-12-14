@@ -104,7 +104,7 @@ class _HomeState extends State<Home> {
               Padding(
                 padding: const EdgeInsets.only(top: 4.0, left: 40),
                 child: Text(
-                  'Hi ${widget?.studentModel?.firstName}',
+                  'Hi ${widget?.studentModel?.firstName ??''}',
                   style: TextStyle(
                       color: Color(0xff333D8A),
                       fontFamily: 'GalanoGrotesque2',

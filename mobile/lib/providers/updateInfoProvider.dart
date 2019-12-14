@@ -138,6 +138,7 @@ class UpdateInfoProvider extends ChangeNotifier {
                                 YMargin(5),
                                 Text(
                                   "${schoolsList.toSet().toList()[i].schoolName}",
+                                  overflow: TextOverflow.ellipsis,
                                   style: TextStyle(fontSize: 15),
                                 ),
                                 const YMargin(10),
