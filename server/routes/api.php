@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::get('/twilio/sms/send', 'TwilioController@sendSms');
+Route::get('/welcome', function () {
+  return response()->json(['welcome']);
+});
+Route::post('/twilio/sms/send', 'TwilioController@sendSms');
 Route::post('/nexmo/call', 'TwilioController@call');
