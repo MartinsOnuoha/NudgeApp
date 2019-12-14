@@ -8,7 +8,6 @@ import 'package:nudge/models/studentModel.dart';
 import 'package:nudge/utils/fade_route.dart';
 import 'package:nudge/utils/margin.dart';
 import 'package:nudge/utils/theme.dart';
-import 'package:nudge/widgets/dialog.dart';
 import 'package:provider/provider.dart';
 import 'package:spring_button/spring_button.dart';
 import 'package:zefyr/zefyr.dart';
@@ -73,13 +72,16 @@ class _NotesState extends State<Notes> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
-                        'Notes',
-                        style: TextStyle(
-                            color: white,
-                            fontFamily: 'GalanoGrotesque2',
-                            fontWeight: FontWeight.w400,
-                            fontSize: 21),
+                       FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text(
+                          'Notes',
+                          style: TextStyle(
+                              color: white,
+                              fontFamily: 'GalanoGrotesque2',
+                              fontWeight: FontWeight.w400,
+                              fontSize: 21),
+                        ),
                       ),
                       Spacer(),
                       Text(
@@ -105,13 +107,16 @@ class _NotesState extends State<Notes> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
-                        'Important',
-                        style: TextStyle(
-                            color: lightText,
-                            fontFamily: 'GalanoGrotesque2',
-                            fontWeight: FontWeight.w400,
-                            fontSize: 21),
+                      FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text(
+                          'Important',
+                          style: TextStyle(
+                              color: lightText,
+                              fontFamily: 'GalanoGrotesque2',
+                              fontWeight: FontWeight.w400,
+                              fontSize: 21),
+                        ),
                       ),
                       Spacer(),
                       Text(

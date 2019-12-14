@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +6,6 @@ import 'package:nudge/models/notesModel.dart';
 import 'package:nudge/utils/theme.dart';
 import 'package:nudge/widgets/textFields.dart';
 import 'package:provider/provider.dart';
-import 'package:quill_delta/quill_delta.dart';
 import 'package:zefyr/zefyr.dart';
 
 import 'tabs/providers/notesProvider.dart';

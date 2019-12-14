@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:intl/intl.dart';
 import 'package:nudge/utils/margin.dart';
 import 'package:nudge/utils/theme.dart';
 import 'package:nudge/views/tabs/providers/homeProvider.dart';
@@ -98,7 +98,6 @@ class _AddClassState extends State<AddClass> {
               ),
               const YMargin(20),
               StartTime(provider, isDarkTheme: true, onTap: () async {
-               
                 provider.kTimeStart = await showTimePicker(
                     context: context, initialTime: TimeOfDay.now());
 
@@ -224,14 +223,126 @@ class RadioModel {
   RadioModel(this.isSelected, this.day);
 }
 
-class CreateNote extends StatelessWidget {
-  const CreateNote({Key key}) : super(key: key);
+class CreateAssignment extends StatefulWidget {
+  const CreateAssignment({Key key}) : super(key: key);
 
   @override
+  _CreateAssignmentState createState() => _CreateAssignmentState();
+}
+
+class _CreateAssignmentState extends State<CreateAssignment> {
+  var formKey = GlobalKey<FormState>();
+
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: <Widget>[],
+    var provider = Provider.of<HomeProvider>(context);
+
+    return Scaffold(
+      backgroundColor: blue,
+      appBar: AppBar(
+        elevation: 0,
+        brightness: Brightness.dark,
+        backgroundColor: blue,
+        iconTheme: IconThemeData(color: Colors.white),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(18.0),
+        child: Form(
+          key: formKey,
+          child: ListView(
+            children: <Widget>[
+              const YMargin(10),
+              Image.asset(
+                'assets/images/clip-2.png',
+                scale: 4,
+              ),
+              Center(
+                child: Text(
+                  'Add a new Assignment for class',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w700, fontSize: 19, color: white),
+                ),
+              ),
+              const YMargin(30),
+              TitleM(
+                provider,
+                isDarkTheme: true,
+              ),
+              const YMargin(20),
+              DueDate(provider, isDarkTheme: true, onTap: () async {
+                var date = await showDatePicker(
+                    context: context,
+                    firstDate: DateTime(1800),
+                    initialDate: DateTime.now(),
+                    lastDate: DateTime(3000));
+
+                var timeDue = await showTimePicker(
+                    context: context, initialTime: TimeOfDay.now());
+
+                provider.kTimeDue =
+                    DateTime(date.year, date.day, date.month, timeDue.hour, timeDue.minute);
+                print(provider.kTimeDue);
+
+                if (provider.kTimeDue != null) {
+                  provider.dueDate.text =
+                      DateFormat.MMMMEEEEd(). format(provider.kTimeDue)+ ' - ' + DateFormat.jm().format(provider.kTimeDue);
+                } else {
+                  provider.dueDate.text = '';
+                }
+              }),
+              
+              Desc(
+                provider,
+                isDarkTheme: true,
+              ),
+              const YMargin(10),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text(
+                  '* Please make sure that this Assignment is accurate and that it is update incase of changes',
+                  style: TextStyle(
+                      fontSize: 9.9, color: white, fontWeight: FontWeight.w200),
+                ),
+              ),
+              const YMargin(20),
+              provider.isLoading
+                  ? Container(
+                      margin: EdgeInsets.symmetric(horizontal: 20),
+                      child: Theme(
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              height: 35,
+                              width: 35,
+                              margin: EdgeInsets.all(10),
+                              child: CircularProgressIndicator(),
+                            )
+                          ],
+                        ),
+                        data:
+                            ThemeData(accentColor: white, primaryColor: white),
+                      ))
+                  : Container(
+                      height: 55,
+                      margin:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                      child: FlatButton(
+                        color: white,
+                        textColor: blue,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        onPressed: () {
+                          provider.addAssignment(context, formKey);
+                        },
+                        child: Text(
+                          'Confirm and Create',
+                          style: TextStyle(
+                              fontSize: 17, fontFamily: 'GalanoGrotesque2'),
+                        ),
+                      ),
+                    ),
+            ],
+          ),
+        ),
       ),
     );
   }

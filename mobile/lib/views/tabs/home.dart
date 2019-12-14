@@ -1,14 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:nudge/models/assignmentModel.dart';
 import 'package:nudge/models/classModel.dart';
 import 'package:nudge/models/studentModel.dart';
 import 'package:nudge/utils/fade_route.dart';
 import 'package:nudge/utils/margin.dart';
 import 'package:nudge/utils/theme.dart';
+import 'package:nudge/utils/timeago.dart';
 import 'package:nudge/views/tabs/providers/homeProvider.dart';
 import 'package:nudge/widgets/dialog.dart';
 import 'package:provider/provider.dart';
+
+import '../viewAssignment.dart';
 
 class Home extends StatefulWidget {
   final StudentModel studentModel;
@@ -19,10 +23,22 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  HomeProvider provider;
+  @override
+  void initState() {
+    loadData();
+    super.initState();
+  }
+
+  loadData() async {
+    await Future.delayed(Duration(milliseconds: 600));
+  }
+
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<HomeProvider>(context);
+    provider = Provider.of<HomeProvider>(context);
     provider.studentModel = widget.studentModel;
+    provider.saveNextClass();
     return Container(
       color: Color(0xffE5F0FF),
       child: Stack(
@@ -109,6 +125,7 @@ class _HomeState extends State<Home> {
               const YMargin(49),
               Expanded(
                 child: ListView(
+                  physics: BouncingScrollPhysics(),
                   children: <Widget>[
                     Padding(
                       padding:
@@ -169,7 +186,7 @@ class _HomeState extends State<Home> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        widget.studentModel.isAdmin
+                        widget?.studentModel?.isAdmin ?? false
                             ? ClipRRect(
                                 borderRadius: BorderRadius.circular(5),
                                 child: Padding(
@@ -245,71 +262,42 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     const YMargin(10),
-                    Container(
-                      width: screenWidth(context),
-                      height: 240,
-                      child: ListView.builder(
-                        itemCount: 9,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Container(
-                                margin: EdgeInsets.symmetric(
-                                    horizontal: 20, vertical: 9),
-                                width: 210,
-                                height: 210,
-                                padding: EdgeInsets.all(20),
-                                decoration: BoxDecoration(
-                                    color: Color(0xffFEF5F6).withOpacity(0.7),
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Text(
-                                      'Deadine',
-                                      style: TextStyle(
-                                          color: Color(0xffCCCCCC),
-                                          fontWeight: FontWeight.w300,
-                                          fontSize: 14),
-                                    ),
-                                    Row(
-                                      children: <Widget>[
-                                        Text(
-                                          '•',
-                                          style: TextStyle(
-                                              color: Colors.green,
-                                              fontWeight: FontWeight.w300,
-                                              fontSize: 23),
+                    BuildAsst(
+                      context,
+                      provider: provider,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        widget?.studentModel?.isAdmin ?? false
+                            ? ClipRRect(
+                                borderRadius: BorderRadius.circular(5),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20.0),
+                                  child: FlatButton(
+                                    onPressed: () {
+                                      Navigator.of(context).push(
+                                        FadeRoute(
+                                          builder: (context) =>
+                                              CreateAssignment(),
                                         ),
-                                        const XMargin(5),
-                                        Text(
-                                          '3 days left',
-                                          style: TextStyle(
-                                              color: black,
-                                              fontWeight: FontWeight.w300,
-                                              fontSize: 16),
-                                        ),
-                                      ],
-                                    ),
-                                    const YMargin(5),
-                                    Text(
-                                      'Design and Develop A Schedule for Students',
+                                      );
+                                    },
+                                    child: Text(
+                                      '+ Add Assignment',
                                       style: TextStyle(
-                                          color: black,
+                                          color: blue,
                                           fontFamily: 'GalanoGrotesque2',
-                                          fontWeight: FontWeight.w300,
-                                          fontSize: 17),
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w300),
                                     ),
-                                  ],
+                                  ),
                                 ),
-                              ),
-                            ],
-                          );
-                        },
-                      ),
-                    )
+                              )
+                            : Container(),
+                      ],
+                    ),
                   ],
                 ),
               )
@@ -332,7 +320,7 @@ class BuildUI extends StatelessWidget {
     return StreamBuilder<QuerySnapshot>(
       stream: provider.classList(),
       builder: (context, snapshot) {
-        if (!snapshot.hasData) return EmptyUI();
+        if (!snapshot.hasData || snapshot.data.documents.length <=0 ) return EmptyAss();
         return BuildFeedList(snapshot.data.documents, provider, homeContext);
       },
     );
@@ -358,6 +346,53 @@ class BuildFeedList extends StatelessWidget {
           if (snapshot.length > 0)
             for (DocumentSnapshot data in snapshot) ClassWidget(data: data)
         ],
+      ),
+    );
+  }
+}
+
+class BuildAsst extends StatelessWidget {
+  final HomeProvider provider;
+  final homeContext;
+
+  const BuildAsst(this.homeContext, {Key key, this.provider}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<QuerySnapshot>(
+      stream: provider.assignmentList(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData || snapshot.data.documents.length <=0 ) return EmptyUI();
+        return BuildFeedBuildAsstList(
+            snapshot.data.documents, provider, homeContext);
+      },
+    );
+  }
+}
+
+class BuildFeedBuildAsstList extends StatelessWidget {
+  final List<DocumentSnapshot> snapshot;
+  final HomeProvider provider;
+  final homeContext;
+  const BuildFeedBuildAsstList(this.snapshot, this.provider, this.homeContext);
+
+  @override
+  Widget build(BuildContext context) {
+    provider.assLength = provider.assLength < snapshot.length
+        ? snapshot.length
+        : provider.assLength;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Container(
+        height: 210,
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[
+            if (snapshot.length > 0)
+              for (DocumentSnapshot data in snapshot)
+                AssignmentWidget(data: data)
+          ],
+        ),
       ),
     );
   }
@@ -390,6 +425,41 @@ class EmptyUI extends StatelessWidget {
           const YMargin(10),
           Text(
             'You Don\'t have any class today...',
+            style: TextStyle(fontSize: 13),
+          ),
+          const YMargin(20),
+        ],
+      ),
+    );
+  }
+}
+class EmptyAss extends StatelessWidget {
+  const EmptyAss({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        children: <Widget>[
+          Opacity(
+            opacity: 0.2,
+            child: Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(90),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                          'https://media.istockphoto.com/vectors/open-box-icon-vector-id635771440?k=6&m=635771440&s=612x612&w=0&h=IESJM8lpvGjMO_crsjqErVWzdI8sLnlf0dljbkeO7Ig=',
+                          scale: 3))),
+            ),
+          ),
+          const YMargin(10),
+          Text(
+            'You Don\'t have any pending assignments...',
             style: TextStyle(fontSize: 13),
           ),
           const YMargin(20),
@@ -506,4 +576,86 @@ class ClassWidget extends StatelessWidget {
       ),
     );
   }
+}
+
+class AssignmentWidget extends StatelessWidget {
+  final data;
+  const AssignmentWidget({
+    Key key,
+    this.data,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var asstModel = AssignmentModel.fromSnapshot(data);
+    return InkResponse(
+      onTap: () {
+        Navigator.of(context).push(
+          FadeRoute(
+            builder: (context) => ViewAssignment(
+              assignmentModel: asstModel,
+            ),
+          ),
+        );
+      },
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 9),
+        width: 210,
+        height: 210,
+        padding: EdgeInsets.all(20),
+        decoration: BoxDecoration(
+            color: Color(0xffFEF5F6).withOpacity(0.7),
+            borderRadius: BorderRadius.circular(20)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              'Deadine',
+              style: TextStyle(
+                  color: Color(0xffCCCCCC),
+                  fontWeight: FontWeight.w300,
+                  fontSize: 14),
+            ),
+            Row(
+              children: <Widget>[
+                Text(
+                  '•',
+                  style: TextStyle(
+                      color: Colors.green,
+                      fontWeight: FontWeight.w300,
+                      fontSize: 23),
+                ),
+                const XMargin(5),
+                Text(
+                  '${_printDuration(asstModel.dueDate.toDate().difference(DateTime.now()))} left',
+                  style: TextStyle(
+                      color: black, fontWeight: FontWeight.w300, fontSize: 16),
+                ),
+              ],
+            ),
+            const YMargin(5),
+            Text(
+              asstModel?.title ?? '',
+              style: TextStyle(
+                  color: black,
+                  fontFamily: 'GalanoGrotesque2',
+                  fontWeight: FontWeight.w300,
+                  fontSize: 17),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+String _printDuration(Duration duration) {
+  String twoDigits(int n) {
+    if (n >= 10) return "$n";
+    return "0$n" == '00' ? '' : '$n';
+  }
+
+  String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
+  //String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
+  return "${twoDigits(duration.inHours) != '' ? twoDigits(duration.inDays) + ' Days' : ''}";
 }

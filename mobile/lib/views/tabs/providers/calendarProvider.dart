@@ -13,7 +13,7 @@ class CalendarProvider extends ChangeNotifier {
   Stream<QuerySnapshot> classList() {
     return Firestore.instance
         .collection('classes')
-        .document(studentModel?.classID)
+        .document(studentModel?.classID ?? '')
         .collection('timetable')
         .orderBy('startTime')
         .snapshots();

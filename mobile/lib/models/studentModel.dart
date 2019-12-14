@@ -6,6 +6,7 @@ class StudentModel {
   String email;
   String department;
   String regNo;
+  String phone;
   String school;
   bool isAdmin;
   bool isOnline;
@@ -28,6 +29,7 @@ class StudentModel {
     this.isAdmin,
     this.classID,
     this.year,
+    this.phone,
     this.reference,
     this.studentID,
   );
@@ -41,6 +43,7 @@ class StudentModel {
         imageUrl = map['imageUrl'],
         isOnline = map['is_online'],
         isAdmin = map['is_admin'],
+        phone = map['phone'],
         classID = map['class_id'],
         regNo = map['reg_no'],
         faculty = map['faculty'] != null
@@ -55,6 +58,7 @@ class StudentModel {
         department = json['department'],
         isOnline = json['is_online'],
         isAdmin = json['is_admin'],
+        phone = json['phone'],
         school = json['school'],
         classID = json['class_id'],
         year = json['year'],
@@ -78,25 +82,8 @@ class StudentModel {
     data['class_id'] = this.classID;
     data['school'] = this.school;
     data['reg_no'] = this.regNo;
+    data['phone'] = this.phone;
     data['studentID'] = this.reference.documentID;
-    return data;
-  }
-
-  Map<String, dynamic> toMap() {
-    final Map<dynamic, dynamic> data = new Map<String, dynamic>();
-
-    data['first_name'] = this.firstName;
-    data['last_name'] = this.lastName;
-    data['email'] = this.email;
-    data['imageUrl'] = this.imageUrl;
-    data['department'] = this.department;
-    data['is_online'] = this.isOnline;
-    data['is_admin'] = this.isAdmin;
-    data['year'] = this.year;
-    data['class_id'] = this.classID;
-    data['school'] = this.school;
-    data['reg_no'] = this.regNo;
-    data['reference'] = this.reference;
     return data;
   }
 

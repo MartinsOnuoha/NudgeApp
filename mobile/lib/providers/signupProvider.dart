@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:country_code_picker/country_code.dart';
 import 'package:flutter/material.dart';
 import 'package:nudge/auth/updateInfo.dart';
 import 'package:nudge/utils/baseAuth.dart';
@@ -8,6 +9,7 @@ class SignupProvider extends ChangeNotifier {
   final TextEditingController surnameTEC = new TextEditingController();
   final TextEditingController cmPasswordTEC = new TextEditingController();
   final TextEditingController passwordTEC = new TextEditingController();
+  final TextEditingController phoneTEC = new TextEditingController();
   final TextEditingController emailTEC = new TextEditingController();
 
   var formKey = GlobalKey<FormState>();
@@ -19,6 +21,26 @@ class SignupProvider extends ChangeNotifier {
   set isLoading(bool val) {
     _isLoading = val;
     notifyListeners();
+  }
+
+  String _countryCode;
+  String get countryCode => _countryCode;
+
+  String _phone;
+  String get phone => _phone;
+
+  set countryCode(val) {
+    _countryCode = val;
+    notifyListeners();
+  }
+
+  set phone(val) {
+    _phone = val;
+    notifyListeners();
+  }
+
+  void onCountryChange(CountryCode val) {
+    _countryCode = val.dialCode;
   }
 
   submitData(BuildContext context, provider) async {
@@ -36,6 +58,7 @@ class SignupProvider extends ChangeNotifier {
             'first_name': '${nameTEC.text} ',
             'last_name': '${surnameTEC.text}',
             'email': '${emailTEC.text}',
+            'phone': '$phone',
             'is_online': false,
           });
 
@@ -56,7 +79,7 @@ class SignupProvider extends ChangeNotifier {
       }
     } catch (e) {
       _isLoading = false;
-     /*  if (e.toString().contains('ERROR_EMAIL_ALREADY_IN_USE,')) {
+      /*  if (e.toString().contains('ERROR_EMAIL_ALREADY_IN_USE,')) {
         showDialog(
             context: context,
             builder: (_) => new AlertDialog(

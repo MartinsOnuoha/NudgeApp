@@ -5,8 +5,8 @@ class ClassModel {
   String name;
   String desc;
   String teacher;
-  Timestamp startTime;
-  Timestamp endTime;
+  var startTime;
+  var endTime;
   String location;
 
   final DocumentReference reference;
@@ -40,17 +40,17 @@ class ClassModel {
         endTime = json['endTime'],
         location = json['location'];
 
-
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
 
     data['day'] = this.day;
     data['teacher'] = this.teacher;
-    data['endTime'] = this.endTime;
-    data['desc'] = this.desc;
-    data['startTime'] = this.startTime;
-    data['location'] = this.location;
     data['name'] = this.name;
+    data['location'] = this.location;
+    data['desc'] = this.desc;
+    data['startTime'] = this.startTime.toDate().toIso8601String();
+    data['endTime'] = this.endTime.toDate().toIso8601String();
+ 
     return data;
   }
 

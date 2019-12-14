@@ -7,6 +7,8 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
+
+        classpath 'com.google.gms:google-services:4.2.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -24,6 +26,31 @@ subprojects {
 }
 subprojects {
     project.evaluationDependsOn(':app')
+}
+
+subprojects {
+    project.evaluationDependsOn(':app')
+    configurations.all {
+    resolutionStrategy {
+        resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == 'androidx.core') {
+                details.useVersion "1.0.1"
+            }
+            if (details.requested.group == 'androidx.lifecycle') {
+                details.useVersion "2.0.0"
+            }
+            if (details.requested.group == 'androidx.versionedparcelable') {
+                details.useVersion "1.0.0"
+            }
+            if (details.requested.group == 'androidx.fragment') {
+                details.useVersion "1.0.0"
+            }
+            if (details.requested.group == 'androidx.appcompat') {
+                details.useVersion "1.0.1"
+            }
+        }
+    }
+}
 }
 
 task clean(type: Delete) {

@@ -138,7 +138,7 @@ class BuildUI extends StatelessWidget {
     return StreamBuilder<QuerySnapshot>(
       stream: provider.classList(),
       builder: (context, snapshot) {
-        if (!snapshot.hasData) return EmptyUI();
+        if (!snapshot.hasData|| snapshot.data.documents.length <=0 ) return EmptyUI();
         return BuildFeedList(snapshot.data.documents, provider, homeContext);
       },
     );
@@ -281,7 +281,7 @@ class _CalendarItemState extends State<CalendarItem> {
             ],
           ),
           Container(
-            height: screenHeight(context, percent: 0.26),
+            height: screenHeight(context, percent: 0.27),
             width: double.infinity,
             margin: EdgeInsets.all(10).add(EdgeInsets.only(left: 20, right: 8)),
             padding: EdgeInsets.all(20),
@@ -302,13 +302,9 @@ class _CalendarItemState extends State<CalendarItem> {
                       fontWeight: FontWeight.w500,
                       fontSize: 17),
                 ),
-                Text(
-                  classModel.desc ?? '',
-                  style: TextStyle(color: lightText, fontSize: 13),
-                ),
                 const YMargin(18),
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.only(top: 4.0),
@@ -318,7 +314,7 @@ class _CalendarItemState extends State<CalendarItem> {
                         color: Color(0xffA3A9C1),
                       ),
                     ),
-                    const XMargin(17),
+                    const XMargin(13),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -328,7 +324,7 @@ class _CalendarItemState extends State<CalendarItem> {
                               color: text,
                               fontFamily: 'GalanoGrotesque2',
                               fontWeight: FontWeight.w500,
-                              fontSize: 17),
+                              fontSize: 16),
                         ),
                         Text(
                           teacher?.phone ?? '',
@@ -338,9 +334,9 @@ class _CalendarItemState extends State<CalendarItem> {
                     )
                   ],
                 ),
-                const YMargin(18),
+                const YMargin(9),
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.only(top: 4.0),
@@ -350,9 +346,10 @@ class _CalendarItemState extends State<CalendarItem> {
                         color: Color(0xffA3A9C1),
                       ),
                     ),
-                    const XMargin(17),
+                    const XMargin(11),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
                           classModel?.location ?? '',
@@ -360,7 +357,7 @@ class _CalendarItemState extends State<CalendarItem> {
                               color: text,
                               fontFamily: 'GalanoGrotesque2',
                               fontWeight: FontWeight.w500,
-                              fontSize: 17),
+                              fontSize: 14),
                         ),
                       ],
                     )

@@ -47,7 +47,9 @@ class LoginProvider extends ChangeNotifier {
 
           if (user != null) {
             var _studentModel = await auth.getStudentProfileData(user.uid);
-            
+            saveItem(
+                item: json.encode(_studentModel.toJson()).toString(),
+                key: 'userModel');
             notifyListeners();
             if (_studentModel != null) {
               if (_studentModel.school == null) {

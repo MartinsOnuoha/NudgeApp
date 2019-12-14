@@ -13,14 +13,29 @@ class Controller extends StatefulWidget {
 }
 
 class _ControllerState extends State<Controller> {
+
+    ControllerProvider provider;
+  @override
+  void initState() {
+    loadData();
+    super.initState();
+  }
+
+  loadData() async {
+    await Future.delayed(Duration(milliseconds: 600));
+    provider.loadUser();
+  }
+
+
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<ControllerProvider>(context);
+     provider = Provider.of<ControllerProvider>(context);
+    provider.loadUser();
     return Scaffold(
       body: Container(
           color: Colors.white,
           child:
-              provider.currentTab(widget.studentModel)[provider.currentIndex]),
+              provider.currentTab()[provider.currentIndex]),
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0,
         backgroundColor: Color(0xffF9F9FC),
@@ -45,8 +60,8 @@ class _ControllerState extends State<Controller> {
           ),
           BottomNavigationBarItem(
             icon: new Image.asset(
-              'assets/icons/pages.png',
-              scale: 2.8,
+              'assets/icons/personi.png',
+              scale: 3.4,
               color: provider.currentIndex == 1
                   ? Color(0xff7D79B2)
                   : Colors.grey[400],

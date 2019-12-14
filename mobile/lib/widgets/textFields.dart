@@ -1,11 +1,13 @@
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:nudge/providers/signupProvider.dart';
+import 'package:nudge/chat/providers/chatProvider.dart';
+import 'package:nudge/utils/margin.dart';
 import 'package:nudge/utils/theme.dart';
 import 'package:nudge/utils/validator.dart';
 
 class Name extends StatelessWidget {
   final text;
-  final SignupProvider controller;
+  final  controller;
   final bool isDarkTheme, isEnabled;
   const Name(
     this.controller, {
@@ -81,7 +83,7 @@ class Name extends StatelessWidget {
 
 class Surname extends StatelessWidget {
   final text;
-  final SignupProvider controller;
+  final  controller;
   final bool isDarkTheme, isEnabled;
   const Surname(
     this.controller, {
@@ -231,6 +233,91 @@ class Email extends StatelessWidget {
   }
 }
 
+class Phone extends StatelessWidget {
+  final text;
+  final  controller;
+  final bool isDarkTheme, isEnabled;
+
+  const Phone(
+    this.controller, {
+    Key key,
+    this.text,
+    this.isDarkTheme = false,
+    this.isEnabled = true,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        children: <Widget>[
+          TextFormField(
+            validator: (value) {
+              if (value.length >= 10) {
+                controller.phone = '${controller.countryCode ?? "+1"}' + value;
+
+                return null;
+              } else if (value.isEmpty) {
+                return "This field can't be left empty";
+              } else {
+                return "Please enter a valid Phone Number";
+              }
+            },
+            controller: controller.phoneTEC,
+            style: TextStyle(
+                fontSize: 16,
+                color: isDarkTheme ? Colors.white : Colors.black,
+                fontWeight: FontWeight.w200),
+            decoration: InputDecoration(
+              isDense: false,
+              border: new UnderlineInputBorder(
+                  borderSide: new BorderSide(color: Colors.white)),
+              labelStyle: TextStyle(
+                  fontSize: 14,
+                  fontFamily: 'GalanoGrotesque',
+                  color: isDarkTheme ? Colors.white : Colors.black),
+              errorStyle: TextStyle(
+                  fontSize: 14,
+                  color: isDarkTheme ? Colors.white : Colors.red),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
+                    color: isDarkTheme ? Colors.white : Colors.grey[500],
+                    width: 1.4),
+              ),
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
+                    color: isDarkTheme ? Colors.white60 : Colors.grey[300],
+                    width: 1.4),
+              ),
+              errorBorder: UnderlineInputBorder(
+                borderRadius: BorderRadius.circular(2),
+                borderSide: BorderSide(color: Colors.red, width: 1.4),
+              ),
+              labelText: 'Phone',
+              prefix: new CountryCodePicker(
+                onChanged: controller.onCountryChange,
+                initialSelection: 'NG',
+                textStyle: TextStyle(
+                fontSize: 16,
+                color: isDarkTheme ? Colors.white : Colors.black,
+                fontWeight: FontWeight.w200),
+                favorite: ['+234', 'NG'],
+                // optional. Shows only country name and flag
+                showCountryOnly: false,
+                // optional. Shows only country na
+                // optional. aligns the flag and the Text left
+                alignLeft: false,
+              ),
+            ),
+            keyboardType: TextInputType.number,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class Password extends StatelessWidget {
   final text;
   final controller;
@@ -310,7 +397,7 @@ class Password extends StatelessWidget {
 
 class CMPassword extends StatelessWidget {
   final text;
-  final SignupProvider controller;
+  final  controller;
   final bool isDarkTheme, isEnabled;
   const CMPassword(
     this.controller, {
@@ -906,6 +993,241 @@ class Location extends StatelessWidget {
   }
 }
 
+class TitleM extends StatelessWidget {
+  final text;
+  final VoidCallback onTap;
+  final controller;
+  final bool isDarkTheme, isEnabled;
+  const TitleM(
+    this.controller, {
+    Key key,
+    this.text,
+    this.onTap,
+    this.isDarkTheme = false,
+    this.isEnabled = true,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.8,
+        margin: EdgeInsets.symmetric(horizontal: 20),
+        child: Theme(
+          data: ThemeData(
+              primaryColor: isDarkTheme ? Colors.white : Colors.black,
+              accentColor: isDarkTheme ? Colors.white : Colors.black,
+              hintColor: isDarkTheme ? Colors.white : Colors.black,
+              fontFamily: 'GalanoGrotesque2'),
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 16.0),
+            child: TextFormField(
+              validator: (value) {
+                if (value.isNotEmpty) {
+                  return null;
+                } else if (value.isEmpty) {
+                  return "This field can't be left empty";
+                } else {
+                  return "Location is Invalid";
+                }
+              },
+              controller: controller?.titleTEC,
+              enabled: isEnabled,
+              style: TextStyle(
+                  fontSize: 26,
+                  color: isDarkTheme ? Colors.white : Colors.black,
+                  fontWeight: FontWeight.w200),
+              decoration: InputDecoration(
+                  isDense: false,
+                  border: new UnderlineInputBorder(
+                      borderSide: new BorderSide(color: Colors.white)),
+                  labelStyle: TextStyle(
+                      fontSize: 15,
+                      fontFamily: 'GalanoGrotesque',
+                      color: isDarkTheme ? Colors.white : Colors.black),
+                  errorStyle: TextStyle(
+                      fontSize: 14,
+                      color: isDarkTheme ? Colors.white : Colors.red),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                        color: isDarkTheme ? Colors.white : Colors.grey[500],
+                        width: 1.4),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                        color: isDarkTheme ? Colors.white60 : Colors.grey[300],
+                        width: 1.4),
+                  ),
+                  errorBorder: UnderlineInputBorder(
+                    borderRadius: BorderRadius.circular(2),
+                    borderSide: BorderSide(color: Colors.red, width: 1.4),
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(vertical: 15),
+                  labelText: 'Title'),
+              keyboardType: TextInputType.text,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Desc extends StatelessWidget {
+  final text;
+  final VoidCallback onTap;
+  final controller;
+  final bool isDarkTheme, isEnabled;
+  const Desc(
+    this.controller, {
+    Key key,
+    this.text,
+    this.onTap,
+    this.isDarkTheme = false,
+    this.isEnabled = true,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.8,
+        margin: EdgeInsets.symmetric(horizontal: 20),
+        child: Theme(
+          data: ThemeData(
+              primaryColor: isDarkTheme ? Colors.white : Colors.black,
+              accentColor: isDarkTheme ? Colors.white : Colors.black,
+              hintColor: isDarkTheme ? Colors.white : Colors.black,
+              fontFamily: 'GalanoGrotesque2'),
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 16.0),
+            child: TextFormField(
+              validator: (value) {
+                if (value.isNotEmpty) {
+                  return null;
+                } else if (value.isEmpty) {
+                  return "This field can't be left empty";
+                } else {
+                  return "Location is Invalid";
+                }
+              },
+              controller: controller?.descTEC,
+              enabled: isEnabled,
+              maxLines: null,
+              style: TextStyle(
+                  fontSize: 18,
+                  color: isDarkTheme ? Colors.white : Colors.black,
+                  fontWeight: FontWeight.w200),
+              decoration: InputDecoration(
+                  isDense: false,
+                  border: new UnderlineInputBorder(
+                      borderSide: new BorderSide(color: Colors.white)),
+                  labelStyle: TextStyle(
+                      fontSize: 15,
+                      fontFamily: 'GalanoGrotesque',
+                      color: isDarkTheme ? Colors.white : Colors.black),
+                  errorStyle: TextStyle(
+                      fontSize: 14,
+                      color: isDarkTheme ? Colors.white : Colors.red),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                        color: isDarkTheme ? Colors.white : Colors.grey[500],
+                        width: 1.4),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                        color: isDarkTheme ? Colors.white60 : Colors.grey[300],
+                        width: 1.4),
+                  ),
+                  errorBorder: UnderlineInputBorder(
+                    borderRadius: BorderRadius.circular(2),
+                    borderSide: BorderSide(color: Colors.red, width: 1.4),
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(vertical: 15),
+                  labelText: 'Description'),
+              keyboardType: TextInputType.text,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class DueDate extends StatelessWidget {
+  final text;
+  final VoidCallback onTap;
+  final controller;
+  final bool isDarkTheme, isEnabled;
+  const DueDate(
+    this.controller, {
+    Key key,
+    this.text,
+    this.onTap,
+    this.isDarkTheme = false,
+    this.isEnabled = true,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.8,
+        margin: EdgeInsets.symmetric(horizontal: 20),
+        child: Theme(
+          data: ThemeData(
+              primaryColor: isDarkTheme ? Colors.white : Colors.black,
+              accentColor: isDarkTheme ? Colors.white : Colors.black,
+              hintColor: isDarkTheme ? Colors.white : Colors.black,
+              fontFamily: 'GalanoGrotesque2'),
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 16.0),
+            child: TextFormField(
+              controller: controller?.dueDate,
+              enabled: false,
+              style: TextStyle(
+                  fontSize: 19,
+                  color: isDarkTheme ? Colors.white : Colors.black,
+                  fontWeight: FontWeight.w200),
+              decoration: InputDecoration(
+                  isDense: false,
+                  border: new UnderlineInputBorder(
+                      borderSide: new BorderSide(color: Colors.white)),
+                  labelStyle: TextStyle(
+                      fontSize: 15,
+                      fontFamily: 'GalanoGrotesque',
+                      color: isDarkTheme ? Colors.white : Colors.black),
+                  errorStyle: TextStyle(
+                      fontSize: 14,
+                      color: isDarkTheme ? Colors.white : Colors.red),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                        color: isDarkTheme ? Colors.white : Colors.grey[500],
+                        width: 1.4),
+                  ),
+                  disabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                        color: isDarkTheme ? Colors.white60 : Colors.grey[300],
+                        width: 1.4),
+                  ),
+                  errorBorder: UnderlineInputBorder(
+                    borderRadius: BorderRadius.circular(2),
+                    borderSide: BorderSide(color: Colors.red, width: 1.4),
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(vertical: 15),
+                  labelText: 'Submission Date'),
+              keyboardType: TextInputType.text,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class StartTime extends StatelessWidget {
   final text;
   final VoidCallback onTap;
@@ -1130,7 +1452,6 @@ class NewNoteTitle extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        
         padding: EdgeInsets.only(top: 10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -1161,6 +1482,34 @@ class NewNoteTitle extends StatelessWidget {
             keyboardType: TextInputType.text,
           ),
         ),
+      ),
+    );
+  }
+}
+
+class ChatBox extends StatelessWidget {
+  final ChatProvider provider;
+  const ChatBox(this.provider);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: screenWidth(context, percent: 0.6),
+      child: TextFormField(
+        controller: provider.textEditingController,
+        style: TextStyle(color: Colors.grey[700], fontSize: 14),
+        decoration: InputDecoration(
+            border: InputBorder.none,
+            hintText: 'Type something ...',
+            hintStyle: TextStyle(
+                color: Colors.grey[300],
+                fontSize: 14,
+                fontWeight: FontWeight.w400),
+            labelStyle: TextStyle(
+                color: Colors.grey[400],
+                fontSize: 14,
+                fontWeight: FontWeight.w400)),
+        keyboardType: TextInputType.text,
       ),
     );
   }

@@ -1,8 +1,11 @@
 import 'dart:async';
+import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nudge/models/studentModel.dart';
+
+import 'persistence.dart';
 
 
 abstract class BaseAuth {
@@ -75,7 +78,7 @@ class Auth implements BaseAuth {
 
     return (querySnapshot.data != null)
         ? StudentModel.fromSnapshot(querySnapshot)
-        : null;
+        : StudentModel.fromJson(json.decode(await getItemData(key:'userModel')));
   }
 
   void updateStudentData({

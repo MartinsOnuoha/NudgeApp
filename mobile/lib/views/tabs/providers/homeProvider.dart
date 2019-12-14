@@ -1,9 +1,13 @@
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:nudge/models/assignmentModel.dart';
 import 'package:nudge/models/classModel.dart';
 import 'package:nudge/models/studentModel.dart';
 import 'package:nudge/utils/margin.dart';
+import 'package:nudge/utils/persistence.dart';
 import 'package:nudge/utils/theme.dart';
 import 'package:nudge/widgets/textFields.dart';
 
@@ -13,6 +17,9 @@ class HomeProvider extends ChangeNotifier {
   final TextEditingController dayTEC = new TextEditingController();
   final TextEditingController startTime = new TextEditingController();
   final TextEditingController endTime = new TextEditingController();
+  final TextEditingController dueDate = new TextEditingController();
+  final TextEditingController titleTEC = new TextEditingController();
+  final TextEditingController descTEC = new TextEditingController();
 
   StudentModel studentModel;
   var formKey = GlobalKey<FormState>();
@@ -23,13 +30,21 @@ class HomeProvider extends ChangeNotifier {
   TimeOfDay _kTimeEnd;
   TimeOfDay get kTimeEnd => _kTimeEnd;
 
+  DateTime _kTimeDue;
+  DateTime get kTimeDue => _kTimeDue;
+
   int classLength = 0;
+
+  int assLength = 0;
 
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
   bool _isClassExpanded = false;
   bool get isClassExpanded => _isClassExpanded;
+
+  bool _isAssignmentExpanded = false;
+  bool get isAssignmentExpanded => _isAssignmentExpanded;
 
   set kTimeStart(TimeOfDay val) {
     _kTimeStart = val;
@@ -41,8 +56,18 @@ class HomeProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  set kTimeDue(DateTime val) {
+    _kTimeDue = val;
+    notifyListeners();
+  }
+
   set isClassExpanded(bool val) {
     _isClassExpanded = val;
+    notifyListeners();
+  }
+
+  set isAssignmentExpanded(bool val) {
+    _isAssignmentExpanded = val;
     notifyListeners();
   }
 
@@ -57,23 +82,43 @@ class HomeProvider extends ChangeNotifier {
     return !_isClassExpanded
         ? Firestore.instance
             .collection('classes')
-            .document(studentModel.classID)
+            .document(studentModel?.classID ?? 'm')
             .collection('timetable')
             .where('day', isEqualTo: t)
             .orderBy('startTime')
             .where(
               'startTime',
               isGreaterThanOrEqualTo: DateTime(
-                  1969, 1, 1, TimeOfDay.now().hour, TimeOfDay.now().hour),
+                  1969, 1, 1, TimeOfDay.now().hour, TimeOfDay.now().minute),
             )
             .limit(1)
             .snapshots()
         : Firestore.instance
             .collection('classes')
-            .document(studentModel.classID)
+            .document(studentModel?.classID ?? 'm')
             .collection('timetable')
             .where('day', isEqualTo: t)
             .orderBy('startTime')
+            .snapshots();
+  }
+
+  Stream<QuerySnapshot> assignmentList() {
+    return !_isAssignmentExpanded
+        ? Firestore.instance
+            .collection('classes')
+            .document(studentModel?.classID ?? 'm')
+            .collection('assignment')
+            .orderBy('dueDate')
+            .where(
+              'dueDate',
+              isGreaterThanOrEqualTo: DateTime.now(),
+            )
+            .snapshots()
+        : Firestore.instance
+            .collection('classes')
+            .document(studentModel?.classID ?? 'm')
+            .collection('assignment')
+            .orderBy('dueDate')
             .snapshots();
   }
 
@@ -84,25 +129,51 @@ class HomeProvider extends ChangeNotifier {
         notifyListeners();
         await Firestore.instance
             .collection('classes')
-            .document(studentModel.classID)
+            .document(studentModel?.classID ?? 'm')
             .collection('timetable')
-            .add(ClassModel(
-              day: dayTEC.text,
-              name: classTEC.text,
-              teacher: kTeacher,
-              location: locationTEC.text,
-              startTime: Timestamp.fromDate(
-                DateTime(1969, 1, 1, kTimeStart.hour, kTimeStart.minute),
-              ),
-              endTime: Timestamp.fromDate(
-                DateTime(1969, 1, 1, kTimeEnd.hour, kTimeEnd.minute),
-              ),
-            ).toJson());
+            .add({
+          'day': dayTEC.text,
+          'name': classTEC.text,
+          'teacher': kTeacher,
+          'location': locationTEC.text,
+          'startTime': Timestamp.fromDate(
+              DateTime(1969, 1, 1, kTimeStart.hour, kTimeStart.minute)),
+          'endTime': Timestamp.fromDate(
+              DateTime(1969, 1, 1, kTimeEnd.hour, kTimeEnd.minute)),
+        });
         _isLoading = false;
         dayTEC.text = '';
         classTEC.text = '';
         kTeacher = '';
         locationTEC.text = '';
+        notifyListeners();
+        Navigator.pop(context);
+      }
+    } catch (e) {
+      _isLoading = false;
+      notifyListeners();
+      print(e.toString());
+    }
+  }
+
+  void addAssignment(BuildContext context, formKey) async {
+    try {
+      if (formKey.currentState.validate()) {
+        _isLoading = true;
+        notifyListeners();
+        await Firestore.instance
+            .collection('classes')
+            .document(studentModel?.classID ?? 'm')
+            .collection('assignment')
+            .add({
+          'title': titleTEC.text,
+          'desc': descTEC.text,
+          'dueDate': Timestamp.fromDate(_kTimeDue)
+        });
+        _isLoading = false;
+        titleTEC.text = '';
+        descTEC.text = '';
+        dueDate.text = '';
         notifyListeners();
         Navigator.pop(context);
       }
@@ -201,5 +272,28 @@ class HomeProvider extends ChangeNotifier {
                 child: listView(),
               ),
             ));
+  }
+
+  saveNextClass() async {
+    var t = DateFormat("E").format(DateTime.now()).toUpperCase();
+    var data = await Firestore.instance
+        .collection('classes')
+        .document(studentModel?.classID ?? 'm')
+        .collection('timetable')
+        .where('day', isEqualTo: t)
+        .where(
+          'startTime',
+          isGreaterThanOrEqualTo: DateTime(
+              1969, 1, 1, TimeOfDay.now().hour, TimeOfDay.now().minute),
+        )
+        .getDocuments();
+
+    if (data != null && data.documents.length > 0) {
+      var classM = ClassModel.fromSnapshot(data.documents[0]);
+      // print(classM.toJson());
+      saveItem(item: json.encode(classM.toJson()).toString(), key: 'nextClass');
+    } else {
+      eraseItem(key: 'nextClass');
+    }
   }
 }

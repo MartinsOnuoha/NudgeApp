@@ -32,7 +32,7 @@ class NotesProvider extends ChangeNotifier {
         .collection('student')
         .document(studentModel?.reference?.documentID ?? studentModel?.studentID)
         .collection('notes')
-        .orderBy('timeStamp')
+        .orderBy('timeStamp', descending:true)
         .snapshots();
   }
 

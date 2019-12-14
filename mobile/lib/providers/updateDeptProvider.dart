@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:nudge/auth/updateDepartment.dart';
 import 'package:nudge/models/deptModel.dart';
 import 'package:nudge/utils/baseAuth.dart';
 import 'package:nudge/utils/fade_route.dart';

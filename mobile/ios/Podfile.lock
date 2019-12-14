@@ -158,6 +158,8 @@ PODS:
     - abseil/base/base_internal
     - abseil/base/config
     - abseil/meta/type_traits
+  - background_fetch (0.3.2):
+    - Flutter
   - BoringSSL-GRPC (0.0.3):
     - BoringSSL-GRPC/Implementation (= 0.0.3)
     - BoringSSL-GRPC/Interface (= 0.0.3)
@@ -167,6 +169,8 @@ PODS:
   - cloud_firestore (0.0.1):
     - Firebase/Core
     - Firebase/Firestore (~> 6.0)
+    - Flutter
+  - device_info (0.0.1):
     - Flutter
   - Firebase/Auth (6.13.0):
     - Firebase/CoreOnly
@@ -309,7 +313,9 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+  - background_fetch (from `.symlinks/plugins/background_fetch/ios`)
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
+  - device_info (from `.symlinks/plugins/device_info/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_database (from `.symlinks/plugins/firebase_database/ios`)
@@ -344,8 +350,12 @@ SPEC REPOS:
     - nanopb
 
 EXTERNAL SOURCES:
+  background_fetch:
+    :path: ".symlinks/plugins/background_fetch/ios"
   cloud_firestore:
     :path: ".symlinks/plugins/cloud_firestore/ios"
+  device_info:
+    :path: ".symlinks/plugins/device_info/ios"
   firebase_auth:
     :path: ".symlinks/plugins/firebase_auth/ios"
   firebase_core:
@@ -363,8 +373,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
+  background_fetch: dab0fbba9e3136be400596965552ed166ed5f448
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
   cloud_firestore: c6e28e89a1bf98faab7fc8fdec20dc6020799cd1
+  device_info: cbf09d2ec12aa7110e0b09fabe54b5bd6c8efe74
   Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
   firebase_auth: 55c9944133e1005a7d257035e2f36dd971859748
   firebase_core: 15d27cd74b2e40f8c29540707c0486bb561a92e8

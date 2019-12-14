@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "172126152020",
+    "firebase_url": "https://nudge-spacex.firebaseio.com",
+    "project_id": "nudge-spacex",
+    "storage_bucket": "nudge-spacex.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172126152020:android:0d909d75c42277522a94c1",
+        "android_client_info": {
+          "package_name": "com.nudgeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "172126152020-hss1j98vufaa9p8duhkhtfsasgrjmduq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkdwKABe2xyr3ryFv8ET6HYbpHRxCJZRg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "172126152020-hss1j98vufaa9p8duhkhtfsasgrjmduq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "172126152020-jqgjeovc2ptb1jbavhle0c3p3001ps2b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nudgeapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
