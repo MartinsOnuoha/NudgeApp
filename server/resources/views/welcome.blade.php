@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/image/nudge.jpg" type="/image/gif" sizes="16x16">
+    <meta name="description" content="Nudge is a class management and automated schedule tracking system for students, to keep track of their school and work time">
     <link rel="stylesheet" type="text/css" href="/css/vendor.bundle.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
