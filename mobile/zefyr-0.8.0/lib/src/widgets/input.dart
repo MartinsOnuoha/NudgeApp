@@ -167,4 +167,9 @@ class InputConnectionController implements TextInputClient {
   void updateFloatingCursor(RawFloatingCursorPoint point) {
    
   }
+
+  @override
+  void connectionClosed() {
+    // TODO: implement connectionClosed
+  }
 }

@@ -127,20 +127,29 @@ class _SplashState extends State<Splash> {
 
         var classModel = ClassModel.fromJson(
             json.decode(await getItemData(key: 'nextClass')));
-
         if (classModel != null && studentModel != null) {
+          var classModel = ClassModel.fromJson(
+              json.decode(await getItemData(key: 'nextClass')));
+          // print(classM.toJson());
+
           var compareTime = DateTime.parse(classModel.startTime).difference(
               DateTime(
                   1969, 1, 1, TimeOfDay.now().hour, TimeOfDay.now().minute));
           print(compareTime.inMinutes);
-
-          if (compareTime.inMinutes > 0 && compareTime.inMinutes <= 30)
+          if (compareTime.inMinutes > 0 &&
+              compareTime.inMinutes <= 30 &&
+              (await getItemData(key: 'hascalled')) != 'true') {
+            saveItem(key: 'hascalled', item: true.toString());
             await NudgeServices.call(
               context,
               message:
                   'Hello, you have ${classModel.name} in ${compareTime.inMinutes} Minutes)}',
               phone: '${studentModel.phone}',
             );
+          }
+        } else {
+          eraseItem(key: 'hascalled');
+          eraseItem(key: 'nextClass');
         }
       } catch (e) {}
 
@@ -173,7 +182,6 @@ class _SplashState extends State<Splash> {
 
   loadData() async {
     try {
-      
       await Future.delayed(Duration(seconds: 4));
       var user = await auth.getCurrentUser();
       if (user != null) {

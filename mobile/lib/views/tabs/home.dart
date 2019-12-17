@@ -32,13 +32,15 @@ class _HomeState extends State<Home> {
 
   loadData() async {
     await Future.delayed(Duration(milliseconds: 600));
+   
   }
 
   @override
   Widget build(BuildContext context) {
     provider = Provider.of<HomeProvider>(context);
     provider.studentModel = widget.studentModel;
-    provider.saveNextClass();
+     provider.saveNextClass(context);
+    
     return Container(
       color: Color(0xffE5F0FF),
       child: Stack(

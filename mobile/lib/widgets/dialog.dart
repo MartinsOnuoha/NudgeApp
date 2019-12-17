@@ -269,6 +269,7 @@ class _CreateAssignmentState extends State<CreateAssignment> {
               ),
               const YMargin(20),
               DueDate(provider, isDarkTheme: true, onTap: () async {
+                provider.kTimeDue = null;
                 var date = await showDatePicker(
                     context: context,
                     firstDate: DateTime(1800),
@@ -278,9 +279,8 @@ class _CreateAssignmentState extends State<CreateAssignment> {
                 var timeDue = await showTimePicker(
                     context: context, initialTime: TimeOfDay.now());
 
-                provider.kTimeDue =
-                    DateTime(date.year, date.day, date.month, timeDue.hour, timeDue.minute);
-                print(provider.kTimeDue);
+                provider.kTimeDue = DateTime(date.year, date.month,date.day,  timeDue.hour, timeDue.minute);
+                
 
                 if (provider.kTimeDue != null) {
                   provider.dueDate.text =

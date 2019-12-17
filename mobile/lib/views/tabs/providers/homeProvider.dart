@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:nudge/api/apiRequest.dart';
 import 'package:nudge/models/assignmentModel.dart';
 import 'package:nudge/models/classModel.dart';
 import 'package:nudge/models/studentModel.dart';
@@ -274,7 +275,8 @@ class HomeProvider extends ChangeNotifier {
             ));
   }
 
-  saveNextClass() async {
+  saveNextClass(context) async {
+    eraseItem(key: 'haalled');
     var t = DateFormat("E").format(DateTime.now()).toUpperCase();
     var data = await Firestore.instance
         .collection('classes')
@@ -290,9 +292,10 @@ class HomeProvider extends ChangeNotifier {
 
     if (data != null && data.documents.length > 0) {
       var classM = ClassModel.fromSnapshot(data.documents[0]);
-      // print(classM.toJson());
+
       saveItem(item: json.encode(classM.toJson()).toString(), key: 'nextClass');
     } else {
+      eraseItem(key: 'hascalled');
       eraseItem(key: 'nextClass');
     }
   }

@@ -48,9 +48,13 @@ class ClassModel {
     data['name'] = this.name;
     data['location'] = this.location;
     data['desc'] = this.desc;
-    data['startTime'] = this.startTime.toDate().toIso8601String();
-    data['endTime'] = this.endTime.toDate().toIso8601String();
- 
+    data['startTime'] = this.startTime != null
+        ? this.startTime.toDate().toIso8601String()
+        : null;
+    data['endTime'] = this.endTime != null
+        ? this.endTime.toDate().toIso8601String()
+        : null;
+
     return data;
   }
 
