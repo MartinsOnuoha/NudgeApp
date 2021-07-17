@@ -1,8 +1,6 @@
-# NaijaHacks Hackathon 2019
+# Nudge App
 
-## Team SpaceX
-
-### Team Members
+### Contributors
 - Martins Onuoha martinsvictor.nd@gmail.com
 - Ogbonda Chiziaruhoma chiziaruhoma@gmail.com
 - Eze Henry tochukwu Henryeze019@gmail.com
