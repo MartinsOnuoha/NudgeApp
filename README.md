@@ -38,7 +38,11 @@ An Automated class management and time tracking system, to keep track of your sc
 
 # Proposed Stack
 
-Node, Firebase, Twilio API, Flutter, Vue
+- Node
+- Firebase
+- Twilio API
+- Flutter
+- Vue
 
 # Benefit
 
